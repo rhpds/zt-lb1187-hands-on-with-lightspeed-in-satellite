@@ -1,44 +1,45 @@
-== Apply advisories from Red Hat Insights for Satellite.
+:imagesdir: ../assets/images
 
-Red Hat Insights continuously analyzes platforms and applications to
-predict risk, recommend actions, and track costs so enterprises can
-better manage hybrid cloud environments.
+== Apply advisories from Red Hat Lightspeed for Satellite.
 
-Insights advisor analyzes Red Hat Enterprise Linux systems for
-configuration problems that could degrade performance or render your
-system less secure. Red Hat Satellite provides access to the Insights
-advisor service in a connected and disconnected network topology. In
-this assignment we’ll review how to use Insights advisor in a
-disconnected environment to analyze problems and remediate
-automatically.
+Red Hat Lightspeed Advisor continuously analyzes platforms and applications to predict risk, recommend actions, and track costs so enterprises can better manage hybrid cloud environments.
 
-== Review Insights advisor recommendations
+Advisor analyzes Red Hat Enterprise Linux systems for configuration problems that could degrade performance or render your system less secure. Red Hat Satellite provides access to the Red Hat Lightspeed Advisor service in a connected and disconnected network topology. In this assignment we’ll review how to use Insights advisor in a
+disconnected environment to analyze problems and remediate them automatically.
+
+== Review Lightspeed advisor recommendations
 
 Navigate to the `+Recommendations+` menu.
 
 .Recommendations menu
 image::insights-recommendations.png[../assets/insights-recommendations]
 
-In this menu we can see all the Insights advisor `+Recommendations+` for
-each host. Click on the "`kebab`" button to review the knowledge base
-article associated with an advisory.
+In this menu we can see all the advisor `+Recommendations+` for
+each host.
 
-.Remediations kebab button
-image::remediations-kebab.png[../assets/remediations-kebab]
+Click on a recommendation with a `+Playbook+` remediation type.
 
-Notice that each of these recommendations has an ansible playbook to
-remediate the the detected problem.
+.Advisor recommendations
+image::recommendations_main_page.png[../assets/recommendations_main_page]
 
-.Associated playbooks
-image::associated-playbook.png[../assets/associated-playbook]
+In this example, we'll review the recommendation for `Decreased security: OpenSSH ClientAlive settings`.
+
+.Decreased security: OpenSSH ClientAlive settings
+image::decreased_security.png[../assets/decreased_security]
+
+The recommendation details page provides a summary of the recommendation, including the affected hosts, the remediation playbook, and the associated knowledge base article. You can click on the Knowledge Base article to view the details of the recommendation.
+
+This particular advisory can be remediated with an ansible playbook.
 
 == Automatically remediate the hosts
 
-Let’s remediate all the problems found by Insights advisor. 1) Select
-all recommendations. 2) Click `+Remediate+`.
+Let’s remediate all the problems found by advisor.
 
-.Remediate
-image::remediate-all-advisories.png[../assets/remediate-all-advisories]
+1) Select the `+rhel1+` and `+rhel2+` hosts.
+2) Click `+Remediate+`.
+
+.Remediate hosts
+image::advisor_remediate.png[../assets/advisor_remediate]
 
 Review all the remediations and click `+Remediate+`.
 
@@ -49,3 +50,21 @@ When all remediations have been applied, proceed to the next assignment.
 
 .Remediation job details
 image::successfully-remediated.png[../assets/successfully-remediated]
+
+== Optional: Vulnerability service ==
+
+The Vulnerability Service powered by Red Hat Lightspeed is the primary method for tracking security issues involving viewing and triaging CVEs (Common Vulnerabilities and Exposures).
+
+The system displays detailed information about CVEs, including the CVE ID, description, publish date, severity, and CVSS score.
+
+We want to provide a security-first experience for CVEs in Satellite, to complement the current errata-first view of CVEs.
+
+You can access the vulnerability service by clicking on the `+Vulnerability+` menu.
+
+.Vulnerability menu
+image::vulnerability-menu.png[../assets/vulnerability-menu]
+
+When you click on a CVE, you will be taken to the CVE details page. Here you can see the details of the CVE, including the description, publish date, severity, and CVSS score.
+
+.CVE details
+image::cve-details.png[../assets/cve-details]
