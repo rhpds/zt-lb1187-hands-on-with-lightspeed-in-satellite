@@ -22,13 +22,13 @@ tee ~/config.yml << EOF
             override: enabled
 EOF
 
-ansible-playbook config.yml
+# ansible-playbook config.yml
 
-export regscript=$(hammer host-registration generate-command --activation-key RHEL10 --setup-insights 0 --insecure 1 --force 1)
-ssh -o "StrictHostKeyChecking no" root@rhel1 $regscript
+# export regscript=$(hammer host-registration generate-command --activation-key RHEL10 --setup-insights 0 --insecure 1 --force 1)
+# ssh -o "StrictHostKeyChecking no" root@rhel1 $regscript
 
-export regscript=$(hammer host-registration generate-command --activation-key RHEL10 --setup-insights 0 --insecure 1 --force 1)
-ssh -o "StrictHostKeyChecking no" root@rhel2 $regscript
+# export regscript=$(hammer host-registration generate-command --activation-key RHEL10 --setup-insights 0 --insecure 1 --force 1)
+# ssh -o "StrictHostKeyChecking no" root@rhel2 $regscript
 
-ssh -o "StrictHostKeyChecking no" root@rhel1 "dnf install -y libvpx-1.14.1-2.el10"
-ssh -o "StrictHostKeyChecking no" root@rhel2 "dnf install -y libvpx-1.14.1-2.el10"
+# ssh -o "StrictHostKeyChecking no" root@rhel1 "dnf install -y libvpx-1.14.1-2.el10"
+# ssh -o "StrictHostKeyChecking no" root@rhel2 "dnf install -y libvpx-1.14.1-2.el10"
