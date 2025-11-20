@@ -18,6 +18,9 @@ this lab.
 
 Click on the tab labelled Satellite Web UI as shown in the image below.
 
+.Satellite Web UI tab
+image::satellite-webui-tab.png[../assets/satellite-webui-tab]
+
 You’ll need the following credentials to log into the Satellite Web UI.
 
 You can copy and paste each of them below.
