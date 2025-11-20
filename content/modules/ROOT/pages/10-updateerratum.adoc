@@ -27,17 +27,18 @@ lab.
 
 Not all of these Errata apply to the hosts we’ve added to this Satellite
 server. To view applicable and installable Errata, click on the
-`+Installable+` radio boxes.
+`+Installable+` radio box.
 
-.Applicatble and installable errata filter
-image::applicableandinstallable.png[../assets/applicableandinstallable]
+.Installable radio box
+image::installable-errata.png[installable radio box]
 
 Let’s install all the Installable Errata to our two hosts.
 
-Select all of the Errata we just filtered.
+.Select all of the Errata we just filtered.
+.Click `+Apply Erratum+`.
 
-.Installable errata
-image::selectallerrata.png[../assets/selectallerrata]
+.Select all installable errata
+image::errata-select-apply.png[select all installable errata]
 
 You’ll be taken to the Apply Errata menu where you should do the
 following:
@@ -49,7 +50,7 @@ following:
 .Apply errata
 image::applyerratawizard.png[../assets/applyerratawizard]
 
-Click confirm to apply the errata.
+Click `+Confirm+` to apply the errata.
 
 To view the application of Errata in real-time, click on the accordion button next to the host
 `+rhel1+`.
