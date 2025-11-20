@@ -26,17 +26,15 @@ image::insights-recommendations.png[../assets/insights-recommendations]
 In this menu we can see all the advisor `+Recommendations+` for
 each host.
 
-Click on a recommendation with a `+Playbook+` remediation type. In this example you'll review the recommendation for `Decreased security: OpenSSH ClientAlive settings`. Click on the recommendation to view the details.
+In this example you'll review the recommendation for `Decreased security: OpenSSH ClientAlive settings`. Click on the recommendation to view the details.
 
 .Advisor recommendations
 image::recommendations_main_page.png[../assets/recommendations_main_page]
 
-In this example, you'll review the recommendation for `Decreased security: OpenSSH ClientAlive settings`.
+The recommendation details page provides a summary of the recommendation, including the affected hosts, the remediation playbook, and the associated knowledge base article. You can click on the Knowledge Base article to view the details of the recommendation.
 
 .Decreased security: OpenSSH ClientAlive settings
 image::decreased_security.png[../assets/decreased_security]
-
-The recommendation details page provides a summary of the recommendation, including the affected hosts, the remediation playbook, and the associated knowledge base article. You can click on the Knowledge Base article to view the details of the recommendation.
 
 This particular advisory can be remediated with an ansible playbook.
 

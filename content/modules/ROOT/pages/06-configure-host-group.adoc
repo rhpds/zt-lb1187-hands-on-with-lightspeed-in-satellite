@@ -67,6 +67,11 @@ to port 80/tcp. In the Parameters menu do the following:
 . Click `+Add Parameter+`.
 . Name the parameter `+firewall+`.
 
+[source,json]
+----
+firewall
+----
+
 WARNING: Parameter names are case sensitive. `+firewall+` must be in lower case.
 
 [arabic, start=3]

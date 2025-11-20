@@ -26,7 +26,7 @@ WARNING: DO NOT RUN THIS COMMAND. IT IS FOR DOCUMENTATION PURPOSES ONLY.
 
 A registration script can be generated in the CLI with the example `hammer` command below.
 
-[source,bash,run]
+[source,nocopy]
 ----
 hammer host-registration generate-command --hostgroup "Application Servers" --insecure 1 --setup-insights 1 --force 1
 ----

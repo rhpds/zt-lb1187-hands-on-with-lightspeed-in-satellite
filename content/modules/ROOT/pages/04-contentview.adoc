@@ -36,7 +36,7 @@ image::createcontentview.png[../assets/createcontentview]
 
 . We’ll name this content view `+RHEL10+`:
 
-[source,js]
+[source,json]
 ----
 RHEL10
 ----

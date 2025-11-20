@@ -41,7 +41,8 @@ image::createenvironment.png[../assets/createenvironment]
 Create a new environment.
 
 . We’ll call this environment `+Test+`.
-[source,js]
+
+[source,json]
 ----
 Test
 ----

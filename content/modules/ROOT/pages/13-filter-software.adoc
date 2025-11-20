@@ -1,3 +1,5 @@
+:imagesdir: ../assets/images
+
 == Filter content
 
 A powerful feature of Content Views in Red Hat Satellite is the ability
@@ -32,9 +34,23 @@ Create a filter with the following steps.
 
 [arabic]
 . Name the filter `+emacs+`.
+
+[source,json]
+----
+emacs
+----
+
+[arabic, start=2]
 . Select `+Exclude filter+`.
 . Give the filter a description. We’re going to exclude emacs from being
 included in the `+RHEL9+` content view.
+
+[source,json]
+----
+added emacs filter
+----
+
+[arabic, start=4]
 . Click `+Create filter+`.
 
 .Create filter
@@ -49,8 +65,23 @@ Configure your RPM rule in the following way.
 
 [arabic]
 . Since we’re filtering `+emacs+`, enter `+emacs+`.
+
+[source,json]
+----
+emacs
+----
+
+[arabic, start=2]
 . Select `+All versions+`.
 . Click `+Add rule+`.
+
+====
+=====
+
+=====
+.Add rpm rule
+[%collapsible]
+====
 
 .Add rpm rule
 image::addrpmruleemacs.png[add rpm rule]
@@ -67,6 +98,13 @@ install.
 [arabic]
 . Add a description to the content view version. In this case,
 `+added emacs filter+`.
+
+[source,json]
+----
+added emacs filter
+----
+
+[arabic, start=2]
 . Select `+Promote+`.
 . Select the `+Test+` lifecycle environment.
 . Click `+Next+`.
@@ -80,6 +118,13 @@ or else the filter won’t work properly.
 
 WARNING: It can take up to 5 minutes for this particular task to
 complete publishing the content view.
+====
+=====
+
+=====
+.Test the filter
+[%collapsible]
+====
 
 Next, click on either `rhel1.lab terminal` or `rhel2.lab terminal` and run the following command.
 
@@ -91,4 +136,7 @@ dnf install -y emacs
 .Emacs is blocked. lol
 image::emacsinstallerror.png[emacs blocked]
 
-Now all your users will be forced to use vim.
+Now all your users will be forced to use a good text editor like vim.
+
+====
+=====
