@@ -27,6 +27,8 @@ tabs:
     url: https://satellite-${guid}.${domain}/
   - name: "satellite.lab terminal"
     url: /wetty_satellite/ssh/root
+  - name: "rhel1.lab terminal"
+    url: /wetty_rhel1/ssh/root
   - name: "rhel2.lab terminal"
     url: /wetty_rhel2/ssh/root
   - name: "node-{{ guid }}-X"

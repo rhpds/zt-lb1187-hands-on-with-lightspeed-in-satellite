@@ -1,3 +1,3 @@
 #!/bin/bash
 
-# hostnamectl set-hostname "node-{{ guid }}-X"
+hostnamectl set-hostname "node-{{ guid }}-X"
