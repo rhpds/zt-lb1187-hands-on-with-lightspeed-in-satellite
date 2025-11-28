@@ -72,7 +72,7 @@ virtualmachines:
           T80+iomU6lMVM7belMf0tl0loa/D+vjd0jfGnip+4ewbEr+dj9TAzfsCBidLrl4a
           +WTV/ogDLLZX8gj6kg==
           -----END CERTIFICATE-----
-  - name: "rhel-{{ guid}}-1"
+  - name: "rhel-INSTANCEGUID-1"
     image: "rhel-10-1-11-13-25"
     bootloader: efi
     register_satellite: false
@@ -90,7 +90,7 @@ virtualmachines:
       hostname: rhel-INSTANCEGUID-1
       prefer_fqdn_over_hostname: true
       manage_etc_hosts: true
-  - name: "rhel-{{ guid }}-2"
+  - name: "rhel-INSTANCEGUID-2"
     image: "rhel-10-1-11-13-25"
     bootloader: efi
     register_satellite: false
