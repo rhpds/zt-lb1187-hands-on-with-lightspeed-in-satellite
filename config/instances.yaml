@@ -86,8 +86,8 @@ virtualmachines:
       - default
     userdata: |
       #cloud-config
-      fqdn: rhel-{{ guid }}-1.lab
-      hostname: rhel-{{ guid }}-1
+      fqdn: rhel-INSTANCEGUID-1.lab
+      hostname: rhel-INSTANCEGUID-1
       prefer_fqdn_over_hostname: true
       manage_etc_hosts: true
   - name: "rhel2"
@@ -104,7 +104,7 @@ virtualmachines:
       - default
     userdata: |
       #cloud-config
-      fqdn: rhel2.lab
-      hostname: rhel2
+      fqdn: rhel-INSTANCEGUID-2.lab
+      hostname: rhel-INSTANCEGUID-2
       prefer_fqdn_over_hostname: true
       manage_etc_hosts: true
