@@ -28,6 +28,6 @@ tabs:
   - name: "satellite.lab terminal"
     url: /wetty_satellite/ssh/root
   - name: "rhel-${guid}-1.lab terminal"
-    url: /wetty_rhel1/ssh/root
+    url: /wetty_rhel-${guid}-1/ssh/root
   - name: "rhel-${guid}-2.lab terminal"
-    url: /wetty_rhel2/ssh/root
+    url: /wetty_rhel-${guid}-2/ssh/root
