@@ -13,12 +13,9 @@ antora:
       label: "Malware"
       solveButton: false
     - name: "module-04"
-      label: "Advisor: Satellite"
-      solveButton: false
-    - name: "module-05"
       label: "Lightspeed Advisor in Satellite"
       solveButton: false
-    - name: "module-06"
+    - name: "module-05"
       label: "Conclusion"
       solveButton: false
 
