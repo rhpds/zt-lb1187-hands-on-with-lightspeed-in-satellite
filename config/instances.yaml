@@ -108,3 +108,21 @@ virtualmachines:
       hostname: rhel-INSTANCEGUID-2
       prefer_fqdn_over_hostname: true
       manage_etc_hosts: true
+  - name: "rhel-INSTANCEGUID-3"
+    image: "rh1-lb1187-rhel9"
+    bootloader: efi
+    register_satellite: false
+    memory: "4G"
+    cores: 1
+    image_size: "20Gi"
+    tags:
+      - key: "AnsibleGroup"
+        value: "nodes"
+    networks:
+      - default
+    userdata: |
+      #cloud-config
+      fqdn: rhel-INSTANCEGUID-3.lab
+      hostname: rhel-INSTANCEGUID-3
+      prefer_fqdn_over_hostname: true
+      manage_etc_hosts: true
