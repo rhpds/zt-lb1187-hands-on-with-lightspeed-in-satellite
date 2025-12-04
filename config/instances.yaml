@@ -73,6 +73,9 @@ virtualmachines:
           +WTV/ogDLLZX8gj6kg==
           -----END CERTIFICATE-----
   - name: "rhel-INSTANCEGUID-1"
+    packages:
+      - libvpx-1.14.1-2.el10
+      - polkit-125-3.el10.x86_64.rpm
     image: "rhel-10-1-11-13-25"
     bootloader: efi
     register_satellite: false
@@ -91,6 +94,9 @@ virtualmachines:
       prefer_fqdn_over_hostname: true
       manage_etc_hosts: true
   - name: "rhel-INSTANCEGUID-2"
+    packages:
+      - libvpx-1.14.1-2.el10
+      - polkit-125-3.el10.x86_64.rpm 
     image: "rhel-10-1-11-13-25"
     bootloader: efi
     register_satellite: false
