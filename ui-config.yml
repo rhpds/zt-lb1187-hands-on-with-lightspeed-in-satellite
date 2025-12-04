@@ -16,8 +16,10 @@ antora:
       label: "Lightspeed Advisor in Satellite"
       solveButton: false
     - name: "module-05"
-      label: "Conclusion"
+      label: "Lightspeed Vulnerability in Satellite"
       solveButton: false
+    - name: "module-06"
+      label: "Conclusion"
 
 tabs:
   - name: "Satellite Web UI"

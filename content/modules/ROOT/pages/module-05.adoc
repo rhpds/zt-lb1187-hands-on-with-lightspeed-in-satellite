@@ -1,18 +1,41 @@
-= Recap
+:imagesdir: ../assets/images
 
-In this lab the Red Hat Lightspeed team wanted to highlight a few different things.
+= Red Hat Lightspeed vulnerability service in Red HatSatellite
 
-In modules 2 (Red Hat Lightspeed via the Hybrid Cloud Console - Evaluate and remediate CVEs) and 3 (Red Hat Lightspeed via the Hybrid Cloud Console - Detect Malware) we highlighted services and capabilities of Red Hat Lightspeed on the Hybrid Cloud Console.   
+In this module you will explore the Red Hat Lightspeed vulnerability service in Satellite.
 
-These two services are not part of the Red Hat Lightspeed advisor in Satellite technical preview capabilities, but they are services that are being considered for inclusion for a future release.  
-The Red Hat Lightspeed team wanted you to get a feel for the capabilities and how they work.
+The Red Hat Lightspeed vulnerability service allows users to assess, triage, prioritize and remediate the most critical vulnerabilities affecting their servers with the built-in threat intelligence. The Red Hat Lightspeed vulnerability service is a technical preview feature.
 
-In module 4 (Advisor recommendations in Satellite while connected) you experienced what the Red Hat Lightspeed advisor capability looks like inside of Red Hat Satellite.  This experience has been there since approximately Satellite 6.4 and lets you see some of the value of Red Hat Lightspeed inside of the Red Hat Satellite user interface.   This is also just the advisor service using the Satellite user interface.
+=====
+.View the vulnerabilities
+[%collapsible]
+====
 
-In module 5 you installed the Red Hat Lightspeed advisor in Satellite technical preview.  This is a podman container that disables some of the connectivity menu items inside of the Satellite user interface, but otherwise looks very similar to what you experienced in module 4.   The Red Hat Lightspeed analysis happens right on the Satellite and no information leaves the Satellite.   
+Let's view the vulnerabilities detected on the host registered to the Satellite server.
 
-Red Hat Lightspeed advisor in Satellite is available as a technical preview with the release of Satellite 6.17.
-Updates to Red Hat Lightspeed advisor in Satellite will be delivered in future Satellite releases - to get new advisor recommendations or newer Red Hat Lightspeed capabilities in future releases you will need to upgrade to the latest container image(s).  
+Click on the `Vulnerability` menu item on the left hand navigation bar.
 
-We encourage you to use Red Hat Lightspeed advisor in Satellite and share your feedback with the Red Hat Lightspeed team by emailing us at insights@redhat.com.  
+image::vulnerability-menu.png[link=self, window=blank, width=100%]
 
+You will see a list of vulnerabilities detected on the host registered to the Satellite server.
+
+image::vulnerabilities-list.png[link=self, window=blank, width=100%]
+
+Click on the vulnerability `CVE-2025-5283`.
+
+You will be taken to a page that shows the details of the vulnerability.
+
+image::cve-2025-5283.png[link=self, window=blank, width=100%]
+
+The vulnerability details page shows the details of the vulnerability including the CVSS score, and the description.
+
+You can view the details by clicking on the `View in Red Hat CVE database` link.
+
+image::vulnerability-details.png[link=self, window=blank, width=100%]
+
+The vulnerability service is in technical preview status thus remediation is not available.
+
+====
+=====
+
+This module is complete.

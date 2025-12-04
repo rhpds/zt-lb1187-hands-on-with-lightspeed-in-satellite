@@ -112,8 +112,7 @@ Let's fix the issue detected by the advisor.
 image::decreased-security-advisor.png[]
 
 [start=2]
-. Click the issue. +
-You'll be taken to a new menu containing the details of the issue. +
+. Click the issue. You'll be taken to a new menu containing the details of the issue.
 
 image::decreased-security-advisor-details.png[]
 
@@ -130,6 +129,8 @@ In this case the resolution is to install the tuned package and set the proper t
 . Click Remediate. +
 This will redirect you to Monitor → Jobs where you can see the job running that you just initiated. This job may take 2-5 minutes to complete. Wait for the results to show success. +
 
+image::remediation-status.png[link=self, window=blank, width=100%]
+
 
 NOTE: Red Hat Lightspeed will perform its daily analysis of a system just like it does in the hosted model. +
 If you wish to perform a manual analysis, you would need to manually run `insights-client` on the host. +
@@ -137,8 +138,7 @@ If you wish to perform a manual analysis, you would need to manually run `insigh
 [start=5]
 5. Let’s return to the list of Red Hat Lightspeed recommendations. +
 In the left hand navigation bar, click Insights -> Recommendations. +
-You should notice that the `The postgresql database performance decreases when the tuned best practices are not applied` recommendation no longer appears.  +
-No synchronization is required since this was processed locally.
+You should notice that the `Decreased security: OpenSSH ClientAlive settings` recommendation no longer appears.
 
 ====
 =====
