@@ -72,24 +72,6 @@ virtualmachines:
           T80+iomU6lMVM7belMf0tl0loa/D+vjd0jfGnip+4ewbEr+dj9TAzfsCBidLrl4a
           +WTV/ogDLLZX8gj6kg==
           -----END CERTIFICATE-----
-  - name: "rhel-INSTANCEGUID-1"
-    image: "rhel-10-1-11-13-25"
-    bootloader: efi
-    register_satellite: false
-    memory: "4G"
-    cores: 1
-    image_size: "40G"
-    tags:
-      - key: "AnsibleGroup"
-        value: "nodes"
-    networks:
-      - default
-    userdata: |
-      #cloud-config
-      fqdn: rhel-INSTANCEGUID-1.lab
-      hostname: rhel-INSTANCEGUID-1
-      prefer_fqdn_over_hostname: true
-      manage_etc_hosts: true
   - name: "rhel-INSTANCEGUID-2"
     image: "rhel-10-1-11-13-25"
     bootloader: efi
@@ -108,7 +90,7 @@ virtualmachines:
       hostname: rhel-INSTANCEGUID-2
       prefer_fqdn_over_hostname: true
       manage_etc_hosts: true
-  - name: "rhel-INSTANCEGUID-3"
+  - name: "rhel-INSTANCEGUID-1"
     image: "rh1-lb1187-rhel9"
     bootloader: efi
     register_satellite: false
@@ -122,7 +104,7 @@ virtualmachines:
       - default
     userdata: |
       #cloud-config
-      fqdn: rhel-INSTANCEGUID-3.lab
-      hostname: rhel-INSTANCEGUID-3
+      fqdn: rhel-INSTANCEGUID-1.lab
+      hostname: rhel-INSTANCEGUID-1
       prefer_fqdn_over_hostname: true
       manage_etc_hosts: true
