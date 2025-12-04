@@ -13,12 +13,9 @@ antora:
       label: "Malware"
       solveButton: false
     - name: "module-04"
-      label: "Advisor: Satellite"
-      solveButton: false
-    - name: "module-05"
       label: "Lightspeed Advisor in Satellite"
       solveButton: false
-    - name: "module-06"
+    - name: "module-05"
       label: "Conclusion"
       solveButton: false
 
@@ -31,3 +28,5 @@ tabs:
     url: /wetty_rhel-${guid}-1/ssh/root
   - name: "rhel-${guid}-2.lab terminal"
     url: /wetty_rhel-${guid}-2/ssh/root
+  - name: "rhel-${guid}-3.lab terminal"
+    url: /wetty_rhel-${guid}-3/
