@@ -78,7 +78,7 @@ virtualmachines:
       - polkit-125-3.el10.x86_64.rpm
     image: "rhel-10-1-11-13-25"
     bootloader: efi
-    register_satellite: false
+    register_satellite: true
     memory: "4G"
     cores: 1
     image_size: "40G"
@@ -96,10 +96,10 @@ virtualmachines:
   - name: "rhel-INSTANCEGUID-2"
     packages:
       - libvpx-1.14.1-2.el10
-      - polkit-125-3.el10.x86_64.rpm 
+      - polkit-125-3.el10.x86_64.rpm
     image: "rhel-10-1-11-13-25"
     bootloader: efi
-    register_satellite: false
+    register_satellite: true
     memory: "4G"
     cores: 1
     image_size: "40G"
