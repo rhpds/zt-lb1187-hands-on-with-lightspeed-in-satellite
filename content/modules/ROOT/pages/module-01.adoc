@@ -1,3 +1,5 @@
+:imagesdir: ../assets/images
+
 = Lab Environment Overview
 
 image::lb1187_M1_Infinicorp_Logo.png[link=self, window=blank, width=100%]
@@ -44,19 +46,19 @@ To help with RHEL management, there are two main products that you will be worki
 * Red Hat Lightspeed (formerly known as Red Hat Insights).
 * Red Hat Satellite
 
-https://www.redhat.com/en/lightspeed[Red Hat Lightspeed^] is an end-to-end system management tool that predicts risks across Red Hat platforms, recommends actions, and tracks costs. Red Hat Lightspeed uses AI-powered package recommendations and planning capabilities to provide targeted guidance on increasing your systems’ day-to-day efficiency.+
+https://www.redhat.com/en/lightspeed[Red Hat Lightspeed^] is an end-to-end system management tool that predicts risks across Red Hat platforms, recommends actions, and tracks costs. Red Hat Lightspeed uses AI-powered package recommendations and planning capabilities to provide targeted guidance on increasing your systems’ day-to-day efficiency. +
 
 https://www.redhat.com/en/technologies/management/satellite[Red Hat Satellite^] is an infrastructure management product specifically designed to keep Red Hat Enterprise Linux® environments and other Red Hat infrastructure running efficiently, with security, and compliant with various standards.+
 
-Starting at Red Hat Summit 2025, we announced that we would deliver Red Hat Lightspeed on premise delivered using Red Hat Satellite.+
+Starting at Red Hat Summit 2025, we announced that we would deliver Red Hat Lightspeed on premise delivered using Red Hat Satellite. +
 
 ### Red Hat Lightspeed in Satellite
 
-To help draw a distinction between Red Hat Lightspeed managed by Red Hat on the Hybrid Cloud Console and what you would manage in your own environment, throughout the lab guide you will see this on premise functionality referred to as `Red Hat Lightspeed in Satellite`.+
+To help draw a distinction between Red Hat Lightspeed managed by Red Hat on the Hybrid Cloud Console and what you would manage in your own environment, throughout the lab guide you will see this on premise functionality referred to as `Red Hat Lightspeed in Satellite`. +
 
 With this option enabled, Red Hat Lightspeed has a series of containers that run on the Satellite to analyze and provide information about your environment. That analysis is done on the Satellite server, in containers, without sending any data to Red Hat.
 
-WARNING:Once Red Hat Lightspeed in Satellite is configured, your Satellite will not be able to send any data to the Hybrid Cloud Console - the local Satellite handles the analysis without sending any data. This means you cannot utilize any of the Hybrid Cloud Console capabilities and you are limited to only what is provided by Red Hat Lightspeed in Satellite. 
+WARNING: Once Red Hat Lightspeed in Satellite is configured, your Satellite will not be able to send any data to the Hybrid Cloud Console - the local Satellite handles the analysis without sending any data. This means you cannot utilize any of the Hybrid Cloud Console capabilities and you are limited to only what is provided by Red Hat Lightspeed in Satellite. 
 
 The Red Hat Lightspeed in Satellite capability includes:
 
@@ -67,7 +69,7 @@ Other services and capabilities may be added in future releases, but feature par
 Red Hat Lightspeed in Satellite does not send any data outside of the Satellite for the processing of Red Hat Lightspeed data.  +
 
 ### Red Hat Lightspeed connectivity options.
-With the introduction of Red Hat Lightspeed advisor in Satellite capabilities in Satellite, there are now three high level modes for Red Hat Lightspeed.
+With the introduction of Red Hat Lightspeed in Satellite capabilities, there are now three high level modes for Red Hat Lightspeed.
 
 1. *Not using Red Hat Lightspeed.*  In this state you are not using any of the services or capabilities of Red Hat Lightspeed.  Data may be sent to Red Hat for telemetry, subscription manager, or other similar capabilities outside of Red Hat Lightspeed.
 2. *Connected to Red Hat Lightspeed.*  Your systems are connected to Red Hat Lightspeed and you are sending a small amount of metadata to Red Hat that is analyzed and information is returned to you via the Hybrid Cloud Console or via third party integrations. Data is collected and sent directly to Red Hat Hybrid Cloud Console on a daily basis. This could take one of several forms:
