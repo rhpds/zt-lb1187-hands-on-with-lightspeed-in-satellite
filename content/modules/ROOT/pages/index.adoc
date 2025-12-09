@@ -1,7 +1,10 @@
 = {lab_name}
 
-This lab will show you some of the existing capabilities and services of Red Hat Lightspeed (formerly known as Red Hat Insights) in the Hybrid Cloud Console, then it will provide a hands-on walkthrough installing Red Hat Lightspeed advisor in Satellite, set up with an existing Satellite installation, allowing you to take advantage of recommendations that will improve the security, performance, and availability of your Red Hat Enterprise Linux hosts even if your Satellite is not connected to the internet. This is a brand new option for Red Hat Lightspeed releasing as a Technical Preview at Summit 2025.
+Have you always wanted to take advantage of Red Hat Lightspeed (formerly known as Red Hat Insights), but been hampered by corporate policies  that don’t allow you to process data in Red Hat’s Hybrid Cloud Console? Red Hat Lightspeed is now available as an on-premise footprint, officially referred to as Red Hat Lightspeed in Satellite, running on Red Hat Satellite.
+
+This lab will let you have a hands-on walkthrough on two of the services of Red Hat Lightspeed on the Hybrid Cloud Console, then use the advisor service and the new technology preview vulnerability service inside of Satellite, allowing you to take advantage of recommendations that will improve the security, performance, and availability of your Red Hat Enterprise Linux hosts.
+
+The lab presentation will walk through the architectural design, provide details on data flows and processing, and provide the knowledge you’ll need to leverage Red Hat Lightspeed with this new footprint. Anyone interested in using Red Hat Lightspeed to support Red Hat Enterprise Linux is encouraged to take this lab.
+
 
 NOTE: On November 4, 2025 Red Hat Insights was renamed to Red Hat Lightspeed.  This lab has been updated to reflect this new name.  Be aware that while the name itself has changed, commands, APIs, some URLs, and older materials will still use the Insights name for quite some time.  For more information on this name change, please see this blog: https://www.redhat.com/en/blog/red-hat-insights-now-red-hat-lightspeed[Red Hat Insights is now Red Hat Lightspeed: Accelerating AI-powered management^].
-
-Note: This lab uses pre-release versions of technical preview software and there might be minor variations between what you experience in the lab and what you experience with the technical preview release. We have tried to keep the experience as close to the end release as possible.
