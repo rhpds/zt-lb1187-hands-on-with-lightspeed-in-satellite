@@ -22,6 +22,9 @@ antora:
       label: "Conclusion"
 
 tabs:
+  - name: "Red Hat Console"
+    url: https://console.redhat.com
+    external: true
   - name: "Satellite Web UI"
     url: https://satellite-${guid}.${domain}/
   - name: "satellite.lab terminal"
