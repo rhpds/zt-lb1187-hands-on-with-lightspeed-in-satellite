@@ -1,10 +1,14 @@
 :imagesdir: ../assets/images
 
-= Red Hat Lightspeed vulnerability service in Red HatSatellite
+= Red Hat Lightspeed vulnerability service in Red Hat Satellite
 
-In this module you will explore the Red Hat Lightspeed vulnerability service in Satellite.
+The last task from Infinicorp is to review the Satellite connected 10.1 host to see if there are any common vulnerabilities and exposures (CVEs) that are critical which need to be addressed.
 
-The Red Hat Lightspeed vulnerability service allows users to assess, triage, prioritize and remediate the most critical vulnerabilities affecting their servers with the built-in threat intelligence. The Red Hat Lightspeed vulnerability service is a technical preview feature.
+You have already performed a similar task on the RHEL 9.7 system that was connected to the Hybrid Cloud Console.  Historically this capability was not available on premise, but with Satellite 6.18 the Red Hat Lightspeed vulnerability service became a https://access.redhat.com/support/offerings/techpreview[Technology Preview^] feature. +
+
+As a technology preview feature, the Lightspeed in Satellite vulnerability service doesn’t have all of the capabilities of its hosted peer.  Most notably the ability to remediate CVEs is not in the technology preview release. 
+
+Expand the section below to complete the tasks in that section. 
 
 =====
 .View the vulnerabilities
