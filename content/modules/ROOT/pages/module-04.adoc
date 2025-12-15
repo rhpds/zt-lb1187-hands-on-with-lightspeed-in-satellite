@@ -2,19 +2,24 @@
 
 = Red Hat Lightspeed advisor in Satellite
 
-In the first several modules of this lab you have done Red Hat Lightspeed exercises while your system is connected to the Hybrid Cloud Console.  However Red Hat is aware that this connectivity can be challenging for some industries or geographies due to company or even governmental policies that restrict the sharing of data.
+Infinicorp has a disconnected environment that leverages Red Hat Satellite for Red Hat Enterprise Linux (RHEL) management. +
+Due to the sensitive nature of the information processed in this environment, no internet connectivity is allowed.  Since Red Hat Lightspeed primarily uses the Hybrid Cloud Console for analysis, the use of these types of tools hasn’t been possible since they require a connection to the internet.  +
+Now that Red Hat has released Red Hat Lightspeed in Satellite, some of the Red Hat Lightspeed capabilities are now available for disconnected environments. +
 
 The Red Hat Lightspeed advisor in Satellite feature is now generally available in Satellite 6.18. The Red Hat Lightspeed vulnerability service is released in technology preview status. The Red Hat Lightspeed advisor in Satellite feature offers the advisor capability as well as remediation. The vulnerability service provides vulnerability scanning.
 
 Please refer to this support document for more information about https://access.redhat.com/support/offerings/techpreview[Technology Preview Features - Scope of Support^].
 
-However once Red Hat Lightspeed advisor in Satellite is enabled the Satellite will not send *any data* to Red Hat.
+Infinicorp has provided you with a preconfigured Red Hat Satellite 6.18 server and a RHEL 10.1 host to evaluate the capabilities of Red Hat Lightspeed in Satellite.  In the interest of time, all set up tasks for the Satellite server have already been completed for you.
 
-Red Hat Lightspeed services in Satellite are only enabled through the use of Red Hat Satellite and are delivered as a podman containers that run with the Satellite server. In this lab, Satellite is already pre-installed for you.
+In this environment your first task is to review the Satellite connected 10.1 host to see if there are any recommendations to improve the reliability, performance, or security of the host. 
 
-== Log into the Satellite Web UI
+== Host recommendations with Red Hat Lightspeed in Satellite - 
 
-First, we’ll log into the Red Hat Satellite Web User Interface (UI). Satellite has been preinstalled and installation is out of scope for this lab.
+First, we’ll log into the Red Hat Satellite Web User Interface (UI). Satellite has been preinstalled and installation and configuration of Lightspeed in Satellite is out of scope for this lab.
+
+Expand a section below to complete the tasks in that section.  
+Please complete each section in order.
 
 =====
 .Log in to the Satellite Web UI
@@ -46,7 +51,7 @@ bc31c9a6-9ff0-11ec-9587-00155d1b0702
 Now click `+Log In+`.
 
 .Login menu
-image::webuilogin.png[../assets/webuilogin]
+image::lb1187_M4_SatLogonPage.png[../assets/webuilogin]
 
 You will be taken to the main dashboard.
 
@@ -56,7 +61,7 @@ image::main-menu.png[../assets/main-menu]
 [start=3]
 . Once logged in, on the left hand navigation bar expand the `Red Hat Lightspeed` menu. +
 
-NOTE: Red Hat Lightspeed was formerly known as Red Hat Insights.  In Satellite 6.17 the UI will read Insights. This is expected and will change to Red Hat Lightspeed in Satellite 6.18 and beyond.
+NOTE: Red Hat Lightspeed was formerly known as Red Hat Insights.  In Satellite 6.17 the UI will read Insights. This is expected and has changed to Red Hat Lightspeed in Satellite 6.18 and beyond.
 
 You will see `Recommendations` and `Vulnerability`.
 
@@ -69,11 +74,11 @@ image::Sat_Insights_Connected_Menu.png[link=self, window=blank, width=100%]
 =====
 
 =====
-.Performing an analysis
+.Analyzing your RHEL server for recommendations
 [%collapsible]
 ====
 
-While in self-hosted mode, you can manually perform a system analysis by running the insights-client command on the host.
+While using Red Hat Lightspeed in Satellite, you can manually perform a system analysis by running the insights-client command on the host.
 This should already be scheduled to be done automatically, but for the purposes of the lab we will go ahead and log into the second RHEL host and manually run this command.
 
 NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, command lines, and APIs still refer to 'insights'.  As such, the 'insights-client' command is still the correct one to use.
@@ -97,24 +102,69 @@ image::self-managed_insights-client_output.png[link=self, window=blank, width=10
 
 NOTE: The insights-client will still include output information as if it is connected to console.redhat.com. No information is actually sent to the Hybrid Cloud Console.
 
+Do not move onto the next step until the operation is complete and you are returned back to the terminal prompt as shown in the image above. 
 ====
 =====
 
 =====
-.Viewing the results and fixing the issue
+.Viewing and fixing Red Hat Lightspeed Recommendations
 [%collapsible]
 ====
 
-Let's fix the issue detected by the advisor.
+Return to the Satellite Web UI to review and fix any issues detected by Red Hat Lightspeed in Satellite.
 
-. While in the Recommendations section, locate the the issue named "Decreased security: OpenSSH ClientAlive settings".
+You should already be in the Recommendations section.  If not, in the Web UI expand `Red Hat Lightspeed` then click `Recommendations`. +
+
+. While in the Recommendations section, locate the issue named "Decreased security: OpenSSH ClientAlive settings". +
+
+Red Hat Lightspeed has found a recommendation that affects system security.  It has detected that the OpenSSH ClientAlive settings are not in line with security best practices. +
+
+Notice that Red Hat Lightspeed gives you a `Category` type of security.  +
+Possible options are: 
+
+* Availability
+* Performance
+* Stability
+* Security
+
+You are also given a `Total risk` level. + 
+Possible options are: 
+
+* Critical
+* Important
+* Moderate
+* Low
+
+You also get a count of how many systems are impacted.  In this case only one system is impacted since that is all that we have registered to this environment.  
+
+Finally, you get a `Remediation type`. +
+Possible options are: 
+
+* Playbook
+* Manual
+
+Since the type is `Playbook` this means that there is an Ansible playbook available to remediate the issue that is found. +
+
+To get more details you will need to select the issue.
 
 image::decreased-security-advisor.png[]
 
 [start=2]
-. Click the issue. You'll be taken to a new menu containing the details of the issue.
+. Click the issue. You'll be taken to a new page containing the details of the issue.
 
 image::decreased-security-advisor-details.png[]
+
+The details page gives you high level information about the risk that was found and links to a Knowledgebase article if you need to get more information about the issue.  +
+
+The `Total risk` section lets you know about the likelihood of encountering the issue as well as the impact when the issue is encountered.  Combined this provides a risk score which in this case is moderate. +
+
+The `Risk of change` section lets you know about the risk of making a change to your system, as well as if the recommended change requires a reboot.  In this case the risk of change is very low and a reboot is not required.  
+
+In summary, this recommendation affects our RHEL host.  
+It is a moderate risk with a very low risk of change. 
+Red Hat Lightspeed offers a playbook to fix the issue.  
+
+You should go ahead and create a playbook that you can evaluate and send to the SecOps team for review and approval.
 
 [start=3]
 
@@ -124,9 +174,9 @@ image::selected-hosts.png[]
 
 [start=4]
 . Click the `Remediate` button. +
-This will open a window that will summarize the recommendation, the resolution, and will let you know if a reboot of the system is needed. +
-In this case the resolution is to install the tuned package and set the proper tuned profile which does not require a reboot. +
-. Click Remediate. +
+This will open a window that will summarize the recommendation, the resolution (or resolution options if there is more than one way to resolve the issue), and will let you know if a reboot of the system is needed. +
+In this case the default resolution is to set the ClientMaxAlive and ClientAliveInterval values to best practice settings and then restart the sshd service.  These steps do not require a reboot. +
+. Click `Remediate`. +
 This will redirect you to Monitor → Jobs where you can see the job running that you just initiated. This job may take 2-5 minutes to complete. Wait for the results to show success. +
 
 image::remediation-status.png[link=self, window=blank, width=100%]
@@ -136,8 +186,8 @@ NOTE: Red Hat Lightspeed will perform its daily analysis of a system just like i
 If you wish to perform a manual analysis, you would need to manually run `insights-client` on the host. +
 
 [start=5]
-5. Let’s return to the list of Red Hat Lightspeed recommendations. +
-In the left hand navigation bar, click Insights -> Recommendations. +
+5. Return to the list of Red Hat Lightspeed recommendations. +
+In the left hand navigation bar, click Red Hat Lightspeed -> Recommendations. +
 You should notice that the `Decreased security: OpenSSH ClientAlive settings` recommendation no longer appears.
 
 ====
@@ -148,10 +198,14 @@ You should notice that the `Decreased security: OpenSSH ClientAlive settings` re
 [%collapsible]
 ====
 
-In Red Hat Lightspeed, at the Hybrid Cloud Console, new recommendations are added weekly or more frequently if needed.
-With Red Hat Lightspeed advisor in Satellite, new recommendations are delivered with container updates.  When you upgrade your Satellite server to the latest release you will need to update the container image to get the latest recommendations and any updates to the advisor engine itself.
+In Red Hat Lightspeed, at the Hybrid Cloud Console, new recommendations are added weekly or more frequently if needed. +
+
+With Red Hat Lightspeed advisor in Satellite, new recommendations are delivered with container updates. + 
+When you upgrade your Satellite server to the latest release you will need to update the container images to get the latest recommendations and any updates to the advisor engine itself. +
+Container images can be downloaded from the Red Hat Ecosystem Catalog and transferred to Red Hat Satellite OR container images are included with Satellite ISOs.
 
 ====
 =====
 
-This module is complete.
+This completes your task to review the Satellite connected 10.1 host to see if there are any recommendations to improve the reliability, performance, or security of the host. + 
+Continue onto the next module.
