@@ -7,7 +7,7 @@ image::lb1187_M1_Infinicorp_Logo.png[link=self, window=blank, width=100%]
 
 We need your help to update Infinicorp’s management of their Red Hat Enterprise Linux environments.
 
-Infinicorp Robotics Solutions, Headquartered here in Sunny Las Vegas NV, is a large multi-national corporation focused on electronics manufacturing across a variety of industries.  We got our start selling vending machines for a wide variety of products here in Las Vegas, but over time we have branched out into the field of robotics and have a goal of being the leading world wide seller and distributor of autonomous robots.
+Infinicorp Robotics Solutions, Headquartered here in sunny Las Vegas NV, is a large multi-national corporation focused on electronics manufacturing across a variety of industries.  We got our start selling vending machines for a wide variety of products here in Las Vegas, but over time we have branched out into the field of robotics and have a goal of being the leading world wide seller and distributor of autonomous robots.
 
 Most of our manufacturing facilities are in the continental United States, primarily Pasadena California, Houston Texas, Columbus Ohio, and Herndon Virginia. 
 

@@ -77,11 +77,7 @@ NOTE: SCAP policies have dependencies on the version of RHEL.  Notice the `Suppo
 
 [start=7]
 7. Click Next.
-8. Provide a policy name of:
-[source,sh,role=execute]
-----
-`{guid} CIS L1 Server Policy` 
-----
+8. Provide a policy name of: *{guid} CIS L1 Server Policy* 
 
 NOTE: Please name the policy as shown above. This will help with automated cleanup tasks.  
 
@@ -99,13 +95,7 @@ NOTE: Please only add your host to this policy.
 13. Click Next.
 14. In the `Rules` section of the wizard you can tailor your policy.  This means that you can customize the policy by unselecting rules or editing values.  + 
 One place where Infinicorp is more strict than the policy is that the maximum password age at Infinicorp is 45 days.  You need to tailor the policy to reflect this. 
-15. In the `Name` filter enter:
-[source,sh,role=execute]
-----
-`Set Existing Passwords Maximum Age`.
-----
-
-[start=16]
+15. In the `Name` filter enter: *Set Existing Passwords Maximum Age*
 16. Expand the resulting rule so that you can see the details. Scroll down to where you see the `Depends on values` as shown in the image below.
 
 .Tailoring Max Age value
@@ -270,13 +260,7 @@ This would be very useful for sending a list of failed rules to the SecOps team.
 Selecting a rule will enable the `Plan remediation` button.
 8. Click the `Plan remediation` button. + 
 This will open the `Remediate with Ansible` wizard.
-9. Name your playbook:
-[source,sh,role=execute]
-----
-`{guid} compliance fix` +
-----
-
-[start=10]
+9. Name your playbook: *{guid} compliance fix*
 10. Click Next.
 11. Your system will be selected. +
 Reminder: your system name is: `rhel-{guid}-1.lab` +

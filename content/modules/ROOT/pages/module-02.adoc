@@ -99,11 +99,7 @@ SecOps has asked for a report of how many systems are impacted by `CVE-2025-4345
 
 From the vulnerability page the default filter is `CVE` (located to the right of the empty checkbox in the image above).  You can type the CVE number in the search box OR even a common search term that might be present in the CVE description like `GTK`.   +
 
-1. In the search box type: 
-[source,sh,role=execute]
-----
-43458
-----
+1. In the search box type: *43458*
 
 [start=2]
 2. This will return `CVE-2025-43458`. +
@@ -196,11 +192,7 @@ NOTE: The following steps are for Conventional (RPM-DNF) based systems.  Immutab
 You can add this fix to an existing playbook or you can create a new playbook.  Red Hat Lightspeed defaults to `Create new playbook` which is what you are going to use. +
    
 [start=3]
-3. Name your playbook:
-[source,sh,role=execute]
-----
-43458 fix {guid}
-----
+3. Name your playbook: *43458 fix {guid} *
 
 Reminder: your system name is: `rhel-{guid}-1.lab`
 
@@ -312,7 +304,7 @@ The advisory column will tell you if the CVE has an advisory available to resolv
 Again - you can get a list of all of the CVEs that impact a specific system very quickly.
 
 .Export button
-image::Insights_Export_Button.png[Insights_Export_Button,15%,15%]
+image::Insights_Export_Button.png[Insights_Export_Button,85%,85%]
 
 With this list of CVEs exported you now have a full picture of the Critical and Important CVEs that affect this RHEL 9.7 system and you can send that onto the SecOps team for their review.  
 
