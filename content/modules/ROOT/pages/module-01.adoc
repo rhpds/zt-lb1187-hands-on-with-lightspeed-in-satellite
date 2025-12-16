@@ -44,7 +44,7 @@ We also need to make sure our newest versions of our satellite connected systems
 For directly connected systems: +
 
 * Review the internet connected RHEL 9.7 system to identify if there are any common vulnerabilities and exposures (CVEs) that are critical or important which need to be addressed.
-* Evaluate the internet connected RHEL 9.7 system for compliance to the CIS Level 1 Server policy and identify what needs to be updated/changed to get the system into compliance.
+* Evaluate the internet connected RHEL 9.7 system for compliance to the Center for Internet Security (CIS) Level 1 Server policy and identify what needs to be updated/changed to get the system into compliance.
 
 For Satellite connected systems: +
 

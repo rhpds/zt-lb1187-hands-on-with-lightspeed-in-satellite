@@ -272,7 +272,7 @@ In the image below there are 14 critical or important CVEs with errata on the ho
 image::lb1187_M2_CVE_w_errata.png[lb1187_M2_CVE_w_errata,85%,85%] 
 
 
-The GTK issue we identified earlier is responsible all of these CVEs, so addressing that will handle the bulk of the issues.  +
+The GTK issue we identified earlier is responsible for all of these CVEs, so addressing that will handle the bulk of the issues.  +
 
 Compared to scanners like Nessus and Crowdstrike this is a more narrow picture of vulnerabilities. +
 Remember that the default filters focus on things we can fix - as a result you’re only looking at CVEs that have errata.  Ones that we can do something about.  To get a full picture we need to see CVEs both with and without errata.  This will help us identify CVEs that may come up on SecOps scanning tools, but that we cannot fix in this version of RHEL.

@@ -1,133 +1,285 @@
-= Red Hat Lightspeed via the Hybrid Cloud Console - Detect Malware
+:imagesdir: ../assets/images
 
-The Red Hat Lightspeed team also wanted to highlight the Malware detection service available in Red Hat Lightspeed on the https://console.redhat.com[Hybrid Cloud Console^].
+Your next task is to evaluate the internet connected RHEL 9.7 system for compliance to the Center for Internet Security (CIS) Level 1 Server policy and identify what needs to be updated/changed to get the system into compliance.
 
-In this module you will evaluate your system for the potential presence of Malware using the Red Hat Lightspeed Malware detection service.
+Red Hat Lightspeed includes a compliance service that helps with this task.
 
-Red Hat has partnered with IBM X-Force Threat Intelligence to access their malware signatures.   +
-Red Hat Lightspeed uses YARA to evaluate the system for the presence of malware. +
-This requires additional setup above and beyond Red Hat Lightspeed registration.
+The compliance service uses Open Source Security Compliance Solution (OpenSCAP) and the RHEL SCAP Security Guide (SSG) to evaluate systems for a variety of regulatory compliance policies like DISA STIG (Defense Information Systems Agency Security Technical Implementation Guide), PCI DSS (Payment Card Industry Data Security Standard), HIPAA (Health Insurance Portability and Accountability Act), CIS (Center for Internet Security), and several more. 
 
-== Setting up Malware Detection
+Each policy is made up of a number of rules, and the compliance service enables you to define the policy from one of the standards, then tailor (change) the policy to meet your needs including disabling specific rules or changing specific values to better align with your organizational needs.
 
-1. Log into your host using the terminal window on the right side of your showroom. 
-The Terminal is logged into your bastion host - you will need to log into `node-{guid}-1.example.com`.
+What we will need you to do is to create a CIS Level 1 Server policy then customize the policy and add your RHEL 9.7 host to the policy. 
 
-[source,sh,role=execute,subs=attributes+]
-----
-ssh lab-user@node-{guid}-1.example.com
-----
+After you’ve created the policy you’ll log into the terminal of the RHEL server and run the command that performs a compliance scan and sends the results to the Hybrid Cloud Console. 
 
-In your environment you would need to install the yara client.  This is part of the appstream repository in RHEL 8 and 9. +
-*In the lab this has already been done for you*, but the command is as follows: +
+You’ll then review the results and identify any changes that need to be made, if any, to bring the system into compliance with the policy.
 
+Expand a section below to complete the tasks in that section.  
+Please complete each section in order.
+
+=====
+.Log in to the Hybrid Cloud Console
+[%collapsible]
+====
+
+If you do not already have it open from the previous module, please use a web browser to navigate to the https://console.redhat.com[Hybrid Cloud Console^] . +
+Log into the Hybrid Cloud Console with the following credentials: +
+
+User:
 [source,sh,role=execute]
 ----
-sudo dnf install yara -y
+ rhpd-lightspeed-lb1187
 ----
 
-NOTE: If you run the command above it won't hurt anything - you will just receive a message stating that there is "Nothing to do" since the package is already installed.
+Password:
+[source,sh,role=execute]
+----
+rhdp*lightspeed2026!
+----
+
+====
+=====
+
+=====
+.Create a compliance policy
+[%collapsible]
+====
+
+1. On the main page locate the `Red Hat Enterprise Linux` tile in the upper left and click https://console.redhat.com/insights/[RHEL^]. +
+
+.Hybrid Cloud Console Home Page
+image::lb1187_M2_HCCHomePage.png[link=self, window=blank, width=100%]
 
 [start=2]
-2. Initiate yara by running the malware detection collector command: +
+2. On the left hand navigation bar go to `Security → Compliance → SCAP Policies`
 
-[source,sh,role=execute]
-----
-sudo insights-client --collector malware-detection
-----
+NOTE: Depending on your screen resolution the left hand navigation bar may automatically minimize.  You may need to click the hamburger menu (3 lines stacked on top of each other) in the upper left corner in order to see the menu bar.
 
-Since Red Hat Lightspeed malware detection had never been run before on this system the malware detection service performed some setup including the creation of a config file.  +
-You would normally need to edit the config file to make scans live, but we have already done this for you in the lab. + 
-
-*The Malware detection service is now set up*. +
-Since this is a new system, there is nothing to find - yet.
-
-== Download the Malware Test Signature and evaluate for Malware
-
-On your host you should be in your user’s home directory.  +
-
-1. Run the `ll` command.  You should not see any files listed in the directory.
-
-We will go ahead and have this system generate a malware detection hit. +
-To do this we will use the eicar set of test files.
-
-More information about eicar is available here if you would like to learn more:  https://www.eicar.org/download-anti-malware-testfile/[https://www.eicar.org/download-anti-malware-testfile/^] 
-
-This set of test files includes 4 different files that test the detection of malware in 4 different ways.   +
-On your host we will use the curl command to copy the files from the eicar webpage onto your host.
-
-[start=2]
-2. Run the following command: +
-
-[source,sh,role=execute]
-----
-curl -O "https://secure.eicar.org/{eicar.com,eicar.com.txt,eicar_com.zip,eicarcom2.zip}"
-----
+This page is showing you the SCAP policies in your environment. +
 
 [start=3]
-3. Run the `ll` command again. +
-You should see the 4 eicar files in your directory. +
-Each file contains the same text which simulates a malware signature: +
+3. Click the `Create new policy` button.
 
-4. Lets run the malware detection scan on your system.  +
+4. Select RHEL9.
 
-NOTE: This may take several minutes to complete. 
+5. In the `Policy type` box type “CIS”
 
-[source,sh,role=execute]
+6. Select the radio button to the left of “CIS Red Hat Enterprise Linux 9 Benchmark for Level 1 - Server”.
+
+This will look like the below image.
+
+.Creating a SCAP policy
+image::lb1187_M3_Create_CIS_Policy.png[link=self, window=blank, width=100%]
+
+Note: SCAP policies have dependencies on the version of RHEL.  Notice the `Supported OS versions` column.  Not all policies support all versions of RHEL.
+
+[start=7]
+7. Click Next.
+8. Provide a policy name of: `{guid} CIS L1 Server Policy` 
+
+NOTE: Please name the policy as shown above. This will help with automated cleanup tasks.  
+
+[start=9]
+9. Optionally you can enter a description or business objective.  
+10. Red Hat Lightspeed allows you to set a compliance threshold.  This means that anything over the entered threshold is considered compliant even if some rules are not passed.  +
+Set the compliance threshold to `97`
+11. Click Next.
+12. Locate and select your RHEL 9.7 host.  It may help to use the search filter. +
+Reminder: your system name is: `rhel-{guid}-1.lab` +
+
+NOTE: Please only add your host to this policy.
+
+[start=13]
+13. Click Next.
+14. In the `Rules` section of the wizard you can tailor your policy.  This means that you can customize the policy by unselecting rules or editing values.  + 
+One place where Infinicorp is more strict than the policy is that the maximum password age at Infinicorp is 45 days.  You need to tailor the policy to reflect this. 
+15. In the `Name` filter enter `Set Existing Passwords Maximum Age`.
+16. Expand the resulting rule so that you can see the details. Scroll down to where you see the `Depends on values` as shown in the image below.
+
+.Tailoring Max Age value
+image::lb1187_M3_Tailor_Max_Age.png[link=self, window=blank, width=100%]
+
+[start=17]
+17. Click the pencil icon beside `maximum password age: 60`.
+18. Enter a new value of 45 and click the check icon as shown in the image below.
+
+.Tailoring Max Age value
+image::lb1187_M3_Tailor_Max_Age_45.png[link=self, window=blank, width=100%]
+
+This updated the rule to a maximum password of 45 days. +
+We could have simply unchecked the rule if we didn’t want to evaluate this rule at all in our environment, but we have very strict adherence to policies at Infinicorp. 
+
+[start=19]
+19. Click Next.
+20. Review the policy and click Finish.
+21. Click `Return to application` to close the wizard.  In the list of policies you should see your newly created policies.  Use the filter by name and search for {guid} if you have issues locating it. +
+
+With your policy created and tailored you are ready to move onto the next step - evaluate the RHEL host against your newly created policy. 
+
+====
+=====
+
+=====
+.Evaluate your system for compliance
+[%collapsible]
+====
+
+This RHEL 9.7 system was built using the image builder service in Red Hat Lightspeed.  As a part of the image build process Infinicorp identified that the system needed to be compliant to CIS Level 1 Server.  As a result it is expected that this system will be compliant, but there might still be improvements that can be made to the image.  
+Scanning the system will give us great insights into changes we can make for future images.
+
+Red Hat Lightspeed uses an insights-client command on the host to perform the evaluation. 
+
+NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, command lines, and APIs still refer to 'insights'.  As such, the 'insights-client' command is still the correct one to use.
+
+1. From your showroom environment, click the tab labeled `rhel-${guid}-1.lab terminal`.
+
+[start=2]
+2. Run the following command:
+
+[source,bash,run]
 ----
-sudo insights-client --collector malware-detection
+sudo insights-client --compliance
 ----
 
+Running the `insights-client --compliance` command will use openscap to scan the system and upload the resulting xccdf (eXtensible Configuration Checklist Description Format) file to the Hybrid Cloud Console for review.
 
-In the output you should see: +
-[source,textinfo]
-----
-Scanning files in /home ... 
-Matched rule XFTI_EICAR_AV_Test in file /home/lab-user/eicar.com 
-Matched rule XFTI_EICAR_AV_Test in file /home/lab-user/eicar.com.txt 
-Matched rule XFTI_EICAR_AV_Test in file /home/lab-user/eicar_com.zip 
-Matched rule XFTI_EICAR_AV_Test in file /home/lab-user/eicar_com2.zip
-----
+.Evaluating compliance status
+image::lb1187_M3_EvaluateCompliance.png[../assets/lb1187_M3_EvaluateCompliance]
 
-That is yara finding the malware signature from eicar in each of the four files.
-Now you can see malware detected inside of Red Hat Lightspeed.
+NOTE: While the regular insights-client command runs daily as a systemd process, the `--compliance` command is not included in that daily run.  Once you deploy this on your systems you will want to schedule this to run on a recurring basis using cron or similar.  This is covered in more detail in the https://docs.redhat.com/en/documentation/red_hat_lightspeed/1-latest/html-single/assessing_and_monitoring_security_policy_compliance_of_rhel_systems/index#setting-recurring-scans_compliance-getting-started[documentation].
 
-WARNING: Wait until the command is completely finished running and you are returned to the terminal prompt before continuing.
+Do not continue to the next step until this command has completed and returns to the terminal prompt as shown in the image above. This process can take anywhere from 1-5 minutes.
 
-== Reviewing Malware Detection Results
+====
+=====
 
-1. Return to the Hybrid Cloud Console. +
-2. On the left hand navigation bar go to `Security → Malware → Signatures` +
-Here you should see a big red exclamation mark telling you that we have matched a malware signature. +
-If there were no malware matches you would see a green checkmark.  Due to the shared environment with multiple people taking this lab it is unlikely you will see the green checkmark today. +
-Looking next to the exclamation mark you will see the number of matched signatures as well as the number of enabled and disabled signatures. +
-Malware detection signatures can be disabled in the event that a false positive is detected, but your user account in this lab does not have the permissions to enable or disable signatures.  +
+=====
+.Review your compliance report
+[%collapsible]
+====
 
-3. Scroll down the page and you will see the matched signature - `XFTI_EICAR_AV_Test` 
-4. Click on `XFTI_EICAR_AV_Test`.  You will see the details of the signature and which systems have matched this malware.
-5. Locate your system. + 
-Reminder: your system name is: `node-{guid}-1.example.com` +
-You should notice that you have the date of the last match and the total number of matches.  The total number of matches should be `4` assuming that you only ran the commands as described in the exercise - that is because the eicar package included 4 test files - one match for each of the files. +
-6. Click on your system’s name to view the details. +
-Here you can see the details of the match.  Click the arrow to the left of the Malware signature match to view more information. +
-For each match you can set the match status. +
+To review the compliance report, return to the https://console.redhat.com/[Hybrid Cloud Console].
+Ideally you already have this tab open from an earlier exercise. 
+If not, go back to the section on logging into the Hybrid Cloud Console.
+We are going to pick back up in the compliance section where we left off.
 
-*Your user in the lab doesn’t have access to these options* to provide a better experience for all users, but the options are:
+1. In the Hybrid Cloud Console go to Security → Compliance → Reports.  +
+If for some reason you closed the page, click this https://console.redhat.com/insights/compliance/reports[link] to go to the right place.
 
-* Not Reviewed
-* In review
-* On hold
-* Benign - not malicious malware
-* Malware detection test
-* No action - risk accepted
-* Resolved - malware removed
+2. Locate (do not click) your policy. It may help to use the filter at the top. +
+Your policy should be named `{guid} CIS L1 Server Policy`.
 
-image::Malware_MatchStatus_Options.png[link=self, window=blank, width=100%]
+NOTE: If you did not run `insights-client --compliance` in the previous step, or if the operation is still in progress, your policy will not display here.  Policies do not display reports until at least one system is reporting.
 
-If you scroll down the page you can download the details as a text file or copy it to your clipboard for the purposes of sending these details to your security team.  
+[start=3]
+3. The Report will show you at a glance the name of the policy, the operating system, and the compliance rate.  You should be 100% compliant.  
+Notice that there is an export symbol to the right of `Systems meeting compliance`. +
+It is possible to export a report from this page, but we are not going to do so at this time. +
 
-As you look through the output you should see 4 different “Match Source” entries - one for each of the eicar files that you put onto the system.  
+.Report Summary
+image::lb1187_M3_CIS_Policy_report_summary.png[../assets/lb1187_M3_CIS_Policy_report_summary]
 
-The Malware detection service does not include any remediation.  This is because each business likely has their own policies and procedures on how malware on systems should be handled once detected.
+[start=4]
+4. Click on your policy name.  This will open the report giving additional details. +
+
+.Report Details
+image::lb1187_M3_CIS_Policy_report_details.png[../assets/lb1187_M3_CIS_Policy_report_details]
+
+From here you can see your policy status.  Starting in the upper left, we have 100% of systems compliant to the policy.  +
+The only conditions that are showing are compliant and non-compliant, but there are several possible conditions: +
+
+* Compliant system - Passing with the specified threshold percentage
+* Non-compliant system - not passing with the specified threshold percentage
+* Unsupported - If a system is using a version of the SCAP Security Guide (SSG) that is either too old OR too new, the system will report itself as unsupported.  There is a https://access.redhat.com/articles/6644131[full support matrix available].
+* Not reporting - The system is assigned to the policy, but has not yet been evaluated for compliance.   
+
+The last two conditions are not displayed since you don’t have any systems in those conditions (compliant and non-compliant are always shown). +
+However, these conditions are great to be aware of.  It is common for someone for example to `dnf upgrade` and update the ssg package to the latest version.  That latest version may not be compatible with an older version of RHEL and the results can be deceptive.  Rather than giving a deceptive or potentially incorrect score, the compliance report will report as unsupported while still giving you a rules failed number. +
+
+Not reporting is also a huge help in large environments - If you have 5000 systems that you expect to be help to the CIS policy and only 4990 are reporting it might otherwise be difficult to know that those last 10 systems aren’t being scanned.  The compliance report will tell you if a system isn’t reporting.  There are also tabs below for `Reporting` and `Never reported` where you can easily get a list of these systems. 
+
+Looking at the bottom of the page, we can see the system that you scanned. +
+In this case your system is compliant, with a compliance score of 99% and 7 failed rules. +
+Since the compliance threshold was set at 97%, this 99% score is considered passing. + 
+
+Each rule in a policy is weighted with a severity, so it is possible to have a 100% passing score and still have individual rules failing. +
+
+At this point you have scanned the system and your RHEL 9.7 has a passing score. +
+Next, you should take a look at what failed and see what can be improved. +
+(Move onto the next section, but don’t leave this page.) +
+
+====
+=====
+
+=====
+.Idenifying failed rules
+[%collapsible]
+====
+
+You know that your system is compliant to the CIS Level 1 server policy, but the system still has 7 failed rules. Take a look to see what you can improve on this system to send back to Infinicorp SecOps.
+
+Begin where you left off in the policy report.
+
+.Report Details
+image::lb1187_M3_CIS_Policy_report_details.png[../assets/lb1187_M3_CIS_Policy_report_details]
+
+1. In the bottom of the report you see the row with your system, the failed rules, and the compliance score. +
+
+2. The system has 7 failed rules.  Click the `7`. 
+3. Clicking the `7` took you to the system view with compliance specific details of this system and it applied the filter: `Rule state: Failed rules`. +
+This shows you the system and only the rules that have failed.
+
+[start=4]
+4. Click the arrow to the left of `Disable SSH Root Login` to expand the failed rule - this should look like the image below. 
+
+.System Details
+image::lb1187_M3_CIS_Policy_system_details.png[../assets/lb1187_M3_CIS_Policy_system_details]
+
+For any failed rule the compliance service shows you the name of the rule, the severity (which affects the scoring), the description of the rule, identifier and references with links, and a rationale for the rule.  
+
+Be sure to note that each rule also has a column for `Remediation type` which will be either `Playbook` or `Manual`.  +
+For the `Disable SSH Root Login` rule there is a `Playbook` available to remediate the issue.
+
+[start=5]
+5. Look through the other rules that have failed. +
+Notice that the majority of the rules have playbooks available to remediate.
+6. Above the failed rules, next to the filters, notice that there is an export button.  +
+This will export the failed rules for review. +
+This would be very useful for sending a list of failed rules to the SecOps team.
+7. Look through the list of rules and click the checkbox next to one or more of the rules that have a remediation type of `Playbook`. +
+Selecting a rule will enable the `Plan remediation` button.
+8. Click the `Plan remediation` button. + 
+This will open the `Remediate with Ansible` wizard.
+9. Name your playbook: `{guid} compliance fix` +
+10. Click Next.
+11. Your system will be selected. +
+Reminder: your system name is: `rhel-{guid}-1.lab` +
+Click Next.
+12. The `Remediation review` tab will list the fixes for the issues you selected and let you know if a reboot is required.  +
+Review the information and click Submit.
+13. In the upper right hand corner you’ll see a pop up with a link that says `Playbook created`. +
+Click the hyperlink to the playbook named `{guid} compliance fix`.
+
+NOTE: If you miss the pop up, in the left hand navigation bar you can click Automation Toolkit → Remediation Plans and locate and click your playbook.
+
+[start=14]
+14. While looking at your remediation plan you created, you have a couple of options in the upper right. +
+The `Execute` button is unavailable.  Your user in this lab does not have permission to execute remediation.  No user gets this permission by default - it has to be explicitly provided, *With so many people taking this lab at the same time we have opted to not enable this feature.*  An interactive demo was shared at the end of module 2 that shows how this works. +
+
+.System Details
+image::lb1187_M3_RemediationPlan.png[../assets/lb1187_M3_RemediationPlan]
+
+[start=15]
+15. Click the Download button. +
+The playbook is downloaded via your browser.  To view the playbook you will need to locate the downloaded file then open the .yml file in a text editor.
+
+This playbook can help simplify the resolution of this issue - you could easily adapt this to run via ansible automation or sync this playbook with Ansible Automation Platform (AAP) - this is covered in the AAP documentation but we are not covering it in this lab. +
+
+====
+=====
+
+At this point you have evaluated the internet connected RHEL 9.7 system for compliance to the Center for Internet Security (CIS) Level 1 Server policy and identified what needs to be updated/changed to get the system into compliance.  
+
+You can send the exported list of failed rules to the SecOps team as well as a playbook that shows how to fix the majority of the issues in the event that you need to secure this host even further.
 
 This module is complete.

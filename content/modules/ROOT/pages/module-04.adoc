@@ -200,6 +200,47 @@ You should notice that the `Decreased security: OpenSSH ClientAlive settings` re
 =====
 
 =====
+.How to see all recommendations
+[%collapsible]
+====
+
+A common question that gets asked with regards to Red Hat Lightspeed and the recommendations that it offers is how can I see the list of recommendations?  For example, are there recommendations for a database like SAP? +
+
+Fortunately this is very easy to see inside of the Satellite user interface (or in the Hybrid Cloud Console). +
+
+From the last section you should be in the Satellite user interface in Red Hat Lightspeed → Recommendations.  
+
+.All Recommendations fixed
+image::lb1187_M4_NoRecommendations.png[link=self, window=blank, width=100%]
+
+Notice in the image above that while you have no recommendations, there are still default filters applied. +
+This is because Red Hat Lightspeed wants to focus on things that are actively impacting your systems. +
+The default filters are `Systems impacted: 1 or more` and `Status: Enabled`.
+In other words, show me issues that affect my systems that are enabled.
+
+To see the full list of recommendations, you will need to remove these filters and then search the list of recommendations.
+
+1. Locate the filters and remove the two default filters. +
+In the image below there are 1951 total recommendations listed, though the count of total recommendations may vary as new recommendations are regularly released. +
+
+.Filters removed
+image::lb1187_M4_NoFilters.png[link=self, window=blank, width=100%]
+
+With the full list showing, all you need to do is search.
+
+[start=2]
+2. In the `Filter by name` box type “SAP” and press enter. +
+This will list all Recommendations that have SAP in the name or description. +
+In the image below there are 55 recommendations for SAP.
+
+.SAP Recommendations
+image::lb1187_M4_SAP.png[link=self, window=blank, width=100%]
+
+Recommendations are commonly created by Red Hat from support cases, best practices guides, or commonly encountered issues.  There are a large variety of Recommendations to help your systems operate to their full potential.
+====
+=====
+
+=====
 .Updates to the list of Recommendations
 [%collapsible]
 ====
