@@ -86,7 +86,7 @@ NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, comma
 
 1. From your showroom environment, click the tab labeled `rhel-${guid}-2.lab terminal`.
 
-.rhel-${guid}-2.lab terminal tab
+.rhel-{guid}-2.lab terminal tab
 image::host2-terminal.png[../assets/host2-terminal-tab]
 
 [start=2]
