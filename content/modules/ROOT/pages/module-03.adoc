@@ -285,7 +285,7 @@ The `Execute` button is unavailable.  Your user in this lab does not have permis
 *With so many people taking this lab at the same time we have opted to not enable this feature.*  +
 An interactive demo was shared at the end of module 2 that shows how this works. +
 
-.System Details
+.Remediation Plan
 image::lb1187_M3_RemediationPlan.png[../assets/lb1187_M3_RemediationPlan]
 
 [start=15]
