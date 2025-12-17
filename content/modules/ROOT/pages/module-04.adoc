@@ -3,10 +3,11 @@
 = Red Hat Lightspeed advisor in Satellite
 
 Infinicorp has a disconnected environment that leverages Red Hat Satellite for Red Hat Enterprise Linux (RHEL) management. +
-Due to the sensitive nature of the information processed in this environment, no internet connectivity is allowed.  Since Red Hat Lightspeed primarily uses the Hybrid Cloud Console for analysis, the use of these types of tools hasn’t been possible since they require a connection to the internet.  +
+Due to the sensitive nature of the information processed in this environment, no internet connectivity is allowed.  Since Red Hat Lightspeed primarily uses the Hybrid Cloud Console for analysis, historically the use of these types of tools hasn’t been possible since they require a connection to the internet.  +
 Now that Red Hat has released Red Hat Lightspeed in Satellite, some of the Red Hat Lightspeed capabilities are now available for disconnected environments. +
 
-The Red Hat Lightspeed advisor in Satellite feature is now generally available in Satellite 6.18. The Red Hat Lightspeed vulnerability service is released in technology preview status. The Red Hat Lightspeed advisor in Satellite feature offers the advisor capability as well as remediation. The vulnerability service provides vulnerability scanning.
+The Red Hat Lightspeed advisor in Satellite feature is now generally available in Satellite 6.18 and offers the advisor capability as well as remediation. +
+The Red Hat Lightspeed vulnerability service is released in technology preview status and provides vulnerability scanning.
 
 Please refer to this support document for more information about https://access.redhat.com/support/offerings/techpreview[Technology Preview Features - Scope of Support^].
 
@@ -20,6 +21,40 @@ First, we’ll log into the Red Hat Satellite Web User Interface (UI). Satellite
 
 Expand a section below to complete the tasks in that section.  
 Please complete each section in order.
+
+=====
+.Analyzing your RHEL server for recommendations
+[%collapsible]
+====
+
+While using Red Hat Lightspeed in Satellite, you can manually perform a system analysis by running the `insights-client` command on the host.
+This should already be scheduled to be done automatically, but for the purposes of the lab we will go ahead and log into the second RHEL host and manually run this command.
+
+NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, command lines, and APIs still refer to 'insights'.  As such, the 'insights-client' command is still the correct one to use.
+
+1. From your showroom environment, click the tab labeled `rhel-${guid}-2.lab terminal`.
+
+.rhel-{guid}-2.lab terminal tab
+image::host2-terminal.png[../assets/host2-terminal-tab]
+
+[start=2]
+2. Run the following command:
+
+[source,bash,run]
+----
+insights-client
+----
+
+Running the insights-client command will collect and upload data to Satellite which will run the advisor analysis locally.
+
+.Output of insights-client command
+image::self-managed_insights-client_output.png[link=self, window=blank, width=100%]
+
+NOTE: The insights-client will still include output information as if it is connected to console.redhat.com. No information is actually sent to the Hybrid Cloud Console.
+
+Do not move onto the next step until the operation is complete and you are returned back to the terminal prompt as shown in the image above. 
+====
+=====
 
 =====
 .Log in to the Satellite Web UI
@@ -61,8 +96,6 @@ image::main-menu.png[../assets/main-menu]
 [start=3]
 . Once logged in, on the left hand navigation bar expand the `Red Hat Lightspeed` menu. +
 
-NOTE: Red Hat Lightspeed was formerly known as Red Hat Insights.  In Satellite 6.17 the UI will read Insights. This is expected and has changed to Red Hat Lightspeed in Satellite 6.18 and beyond.
-
 You will see `Recommendations` and `Vulnerability`.
 
 .Red Hat Lightspeed in Satellite Menu
@@ -71,40 +104,6 @@ image::Sat_Insights_Connected_Menu.png[link=self, window=blank, width=100%]
 [start=4]
 . Select `Recommendations`.
 
-====
-=====
-
-=====
-.Analyzing your RHEL server for recommendations
-[%collapsible]
-====
-
-While using Red Hat Lightspeed in Satellite, you can manually perform a system analysis by running the insights-client command on the host.
-This should already be scheduled to be done automatically, but for the purposes of the lab we will go ahead and log into the second RHEL host and manually run this command.
-
-NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, command lines, and APIs still refer to 'insights'.  As such, the 'insights-client' command is still the correct one to use.
-
-1. From your showroom environment, click the tab labeled `rhel-${guid}-2.lab terminal`.
-
-.rhel-{guid}-2.lab terminal tab
-image::host2-terminal.png[../assets/host2-terminal-tab]
-
-[start=2]
-2. Run the following command:
-
-[source,bash,run]
-----
-insights-client
-----
-
-Running the insights-client command will collect and upload data to Satellite which will run the advisor analysis locally.
-
-.Output of insights-client command
-image::self-managed_insights-client_output.png[link=self, window=blank, width=100%]
-
-NOTE: The insights-client will still include output information as if it is connected to console.redhat.com. No information is actually sent to the Hybrid Cloud Console.
-
-Do not move onto the next step until the operation is complete and you are returned back to the terminal prompt as shown in the image above. 
 ====
 =====
 
@@ -188,9 +187,6 @@ This will redirect you to Monitor → Jobs where you can see the job running tha
 image::remediation-status.png[link=self, window=blank, width=100%]
 
 
-NOTE: Red Hat Lightspeed will perform its daily analysis of a system just like it does in the hosted model. +
-If you wish to perform a manual analysis, you would need to manually run `insights-client` on the host. +
-
 [start=5]
 5. Return to the list of Red Hat Lightspeed recommendations. +
 In the left hand navigation bar, click Red Hat Lightspeed -> Recommendations. +
@@ -204,7 +200,8 @@ You should notice that the `Decreased security: OpenSSH ClientAlive settings` re
 [%collapsible]
 ====
 
-A common question that gets asked with regards to Red Hat Lightspeed and the recommendations that it offers is how can I see the list of recommendations?  For example, are there recommendations for a database like SAP? +
+A common question that gets asked with regards to Red Hat Lightspeed and the recommendations that it offers is how can I see the list of recommendations? + 
+For example, are there recommendations for a database like SAP? +
 
 Fortunately this is very easy to see inside of the Satellite user interface (or in the Hybrid Cloud Console). +
 
@@ -216,12 +213,12 @@ image::lb1187_M4_NoRecommendations.png[link=self, window=blank, width=100%]
 Notice in the image above that while you have no recommendations, there are still default filters applied. +
 This is because Red Hat Lightspeed wants to focus on things that are actively impacting your systems. +
 The default filters are `Systems impacted: 1 or more` and `Status: Enabled`.
-In other words, show me issues that affect my systems that are enabled.
+In other words, show me issues that affect my systems and that are enabled.
 
 To see the full list of recommendations, you will need to remove these filters and then search the list of recommendations.
 
-1. Locate the filters and remove the two default filters. +
-In the image below there are 1951 total recommendations listed, though the count of total recommendations may vary as new recommendations are regularly released. +
+1. Locate the filters and remove the two default filters by clicking the `x`x to the right of them. +
+In the image below there are 1951 total recommendations listed. +
 
 .Filters removed
 image::lb1187_M4_NoFilters.png[link=self, window=blank, width=100%]
@@ -229,7 +226,7 @@ image::lb1187_M4_NoFilters.png[link=self, window=blank, width=100%]
 With the full list showing, all you need to do is search.
 
 [start=2]
-2. In the `Filter by name` box type “SAP” and press enter. +
+2. In the `Filter by name` box type *SAP*. +
 This will list all Recommendations that have SAP in the name or description. +
 In the image below there are 55 recommendations for SAP.
 
