@@ -1,8 +1,8 @@
 :imagesdir: ../assets/images
 
-= Red Hat Lightspeed vulnerability service in Red Hat Satellite
+= Red Hat Lightspeed vulnerability in Red Hat Satellite
 
-The last task from Infinicorp is to review the Satellite connected 10.1 host to see if there are any common vulnerabilities and exposures (CVEs) that are critical which need to be addressed.
+The last task from Infinicorp is to review the Satellite connected 10.1 host to see if there are any common vulnerabilities and exposures (CVEs) that are critical or important which need to be addressed.
 
 You have already performed a similar task on the RHEL 9.7 system that was connected to the Hybrid Cloud Console.  Historically this capability was not available on premise, but with Satellite 6.18 the Red Hat Lightspeed vulnerability service became a https://access.redhat.com/support/offerings/techpreview[Technology Preview^] feature. +
 
@@ -17,7 +17,7 @@ Expand the section below to complete the tasks in that section.
 
 Let's view the vulnerabilities detected on the host registered to the Satellite server.
 
-Click on the `Vulnerability` menu item on the left hand navigation bar.
+1. Click on the `Vulnerability` menu item on the left hand navigation bar.
 
 image::vulnerability-menu.png[link=self, window=blank, width=100%]
 
@@ -25,7 +25,8 @@ You will see a list of vulnerabilities detected on the host registered to the Sa
 
 image::vulnerabilities-list.png[link=self, window=blank, width=100%]
 
-Click on the vulnerability `CVE-2025-5283`.
+[start=2]
+2. Click on the vulnerability `CVE-2025-5283`.
 
 You will be taken to a page that shows the details of the vulnerability.
 
@@ -33,9 +34,13 @@ image::cve-2025-5283.png[link=self, window=blank, width=100%]
 
 The vulnerability details page shows the details of the vulnerability including the CVSS score, and the description.
 
-You can view the details by clicking on the `View in Red Hat CVE database` link.
+[start=3]
+3. If your Satellite has connectivity to the internet as this test Satellite does, you can view the details by clicking on the `View in Red Hat CVE database` link.
 
 image::vulnerability-details.png[link=self, window=blank, width=100%]
+
+The CVE database will give you information on any errata that can be used to patch the vulnerability. +
+For libvpx on RHEL 10 this is RHSA-2025:9120. 
 
 The vulnerability service is in technical preview status thus remediation is not available.
 
