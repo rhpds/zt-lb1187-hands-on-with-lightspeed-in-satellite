@@ -99,11 +99,12 @@ image::main-menu.png[../assets/main-menu]
 You will see `Recommendations` and `Vulnerability`.
 
 .Red Hat Lightspeed in Satellite Menu
-image::Sat_Insights_Connected_Menu.png[link=self, window=blank, width=100%]
+image::Sat_Insights_Connected_Menu.png[../assets/Sat_Insights_Connected_Menu]
 
 [start=4]
 . Select `Recommendations`.
 
+(Move onto the next section, but don’t leave this page.) +
 ====
 =====
 
@@ -239,7 +240,7 @@ In other words, show me issues that affect my systems and that are enabled.
 
 To see the full list of recommendations, you will need to remove these filters and then search the list of recommendations.
 
-1. Locate the filters and remove the two default filters by clicking the `x`x to the right of them. +
+1. Locate the filters and remove the two default filters by clicking the `x` to the right of them. +
 In the image below there are 1951 total recommendations listed. +
 
 .Filters removed
