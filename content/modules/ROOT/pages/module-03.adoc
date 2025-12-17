@@ -139,7 +139,10 @@ Red Hat Lightspeed uses an insights-client command on the host to perform the ev
 
 NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, command lines, and APIs still refer to 'insights'.  As such, the 'insights-client' command is still the correct one to use.
 
-1. From your showroom environment, click the tab labeled `rhel-${guid}-1.lab terminal`.
+1. From your showroom environment, click the tab labeled `rhel-{guid}-1.lab terminal`.
+
+.rhel-{guid}-1.lab terminal tab
+image::lb1187_M3_terminaltab.png[link=self, window=blank, width=100%]
 
 [start=2]
 2. Run the following command:
