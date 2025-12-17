@@ -18,17 +18,6 @@ In each location we have a manufacturing facility, datacenter, and office buildi
 
 Infinicorp has some challenges around addressing vulnerabilities and identifying systems that are not in alignment with various regulatory compliance policies. 
 
-For testing purposes, in your lab environment we have already provided for you: +
-
-* In your connected environment a RHEL 9.7 host that is directly connected to Red Hat Lightspeed at the Hybrid Cloud Console
-* In your disconnected environment, a pre-configured Red Hat Satellite 6.18 which has one Red Hat Enterprise Linux (RHEL)10.1 host registered.  
-
-.Testing Environment
-image::lb1187_M1_Labinfra.png[link=self, window=blank, width=100%]
-
-
-NOTE: For your convenience, the image above and all images in this lab can be opened in a new tab by clicking on them.
-
 *Expand a section below to complete the tasks in that section.* +  
 *Please complete each section in order.*
 
@@ -41,6 +30,16 @@ We need to make sure the internet connected systems at Infinicorp are up to date
 
 We also need to make sure our newest versions of our Satellite connected systems are in good shape before we start rolling out upgrades to the rest of the fleet.  You have the first system built off of the latest packages and we want to verify this is a known good configuration and that there aren’t any critical vulnerabilities that need to be addressed. 
 
+For testing purposes, in your lab environment we have already provided for you: +
+
+* In your connected environment a RHEL 9.7 host that is directly connected to Red Hat Lightspeed at the Hybrid Cloud Console
+* In your disconnected environment, a pre-configured Red Hat Satellite 6.18 which has one Red Hat Enterprise Linux (RHEL) 10.1 host registered.  (Note: for the testing environment only, the Satellite does have a route to the internet.  This is not the case in production.)
+
+.Testing Environment
+image::lb1187_M1_Labinfra.png[link=self, window=blank, width=100%]
+
+NOTE: For your convenience, the image above and all images in this lab can be expanded by clicking on them.
+
 For directly connected systems: +
 
 * Review the internet connected RHEL 9.7 system to identify if there are any common vulnerabilities and exposures (CVEs) that are critical or important which need to be addressed.
@@ -49,7 +48,7 @@ For directly connected systems: +
 For Satellite connected systems: +
 
 * Review the Satellite connected 10.1 host to see if there are any recommendations to improve the reliability, performance, or security of the host.
-* Review the Satellite connected 10.1 host to see if there are any common vulnerabilities and exposures (CVEs) that are critical which need to be addressed.
+* Review the Satellite connected 10.1 host to see if there are any common vulnerabilities and exposures (CVEs) that are critical or important which need to be addressed.
 
 Before we set you on these tasks, let’s take a few minutes to review some of the tools that you will be using today.  +
 
@@ -60,7 +59,7 @@ To help with RHEL management, there are two main products that you will be worki
 
 https://www.redhat.com/en/lightspeed[Red Hat Lightspeed^] is an end-to-end system management tool that predicts risks across Red Hat platforms, recommends actions, and tracks costs. Red Hat Lightspeed uses AI-powered package recommendations and planning capabilities to provide targeted guidance on increasing your systems’ day-to-day efficiency. +
 
-https://www.redhat.com/en/technologies/management/satellite[Red Hat Satellite^] is an infrastructure management product specifically designed to keep Red Hat Enterprise Linux® environments and other Red Hat infrastructure running efficiently, with security, and compliant with various standards.+
+https://www.redhat.com/en/technologies/management/satellite[Red Hat Satellite^] is an infrastructure management product specifically designed to keep Red Hat Enterprise Linux® environments and other Red Hat infrastructure running efficiently, with security, and compliant with various standards. +
 
 Starting at Red Hat Summit 2025, we announced that we would deliver Red Hat Lightspeed on premise using Red Hat Satellite. +
 
