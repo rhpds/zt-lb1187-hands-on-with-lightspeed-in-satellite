@@ -2,18 +2,19 @@
 # Single Point of Truth for Lab Information
 
 lab:
-  name: "Red Hat Satellite Basics 6.17"
-  shortname: "zt-satellite-basics-6-17"
+  name: "Red Hat Lightspeed on prem"
+  shortname: "zt-RHLightspeed"
   maintainer: "Matthew Yee (myee@redhat.com)"
 
   description:
-    summary: "Learn the fundamentals of configuring and using Red Hat Satellite"
-    goal: "Learn the fundamentals of configuring and using Red Hat Satellite."
+    summary: "Hands on with Red Hat Lightspeed in Satellite - Easily see and fix common issues and vulnerabilities"
+    goal: "Explore Red Hat Lightspeed at the Hybrid Cloud Console and inside of Red Hat Satellite."
     concepts:
+      - "Red Hat Lightspeed"
       - "Satellite"
       - "Systems Management"
-    use_case: "Configure secure networking for Red Hat Enterprise Linux"
-    time_to_complete: "10"
+    use_case: "Explore Red Hat Lightspeed at the Hybrid Cloud Console and inside of Red Hat Satellite"
+    time_to_complete: "60"
 
   git_ref:
     production: "main"
