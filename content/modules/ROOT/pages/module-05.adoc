@@ -19,10 +19,12 @@ Let's view the vulnerabilities detected on the host registered to the Satellite 
 
 1. Click on the `Vulnerability` menu item on the left hand navigation bar.
 
-image::vulnerability-menu.png[link=self, window=blank, width=100%]
+.Satellite Menu bar
+image::vulnerability-menu.png[../assets/vulnerability-menu]
 
 You will see a list of vulnerabilities detected on the host registered to the Satellite server.
 
+.Vulnerabilities list
 image::vulnerabilities-list.png[link=self, window=blank, width=100%]
 
 [start=2]
@@ -30,6 +32,7 @@ image::vulnerabilities-list.png[link=self, window=blank, width=100%]
 
 You will be taken to a page that shows the details of the vulnerability.
 
+.CVE Details
 image::cve-2025-5283.png[link=self, window=blank, width=100%]
 
 The vulnerability details page shows the details of the vulnerability including the CVSS score, and the description.
@@ -37,6 +40,7 @@ The vulnerability details page shows the details of the vulnerability including 
 [start=3]
 3. If your Satellite has connectivity to the internet as this test Satellite does, you can view the details by clicking on the `View in Red Hat CVE database` link.
 
+.CVE database link
 image::vulnerability-details.png[link=self, window=blank, width=100%]
 
 The CVE database will give you information on any errata that can be used to patch the vulnerability. +
