@@ -32,7 +32,7 @@ This should already be scheduled to be done automatically, but for the purposes 
 
 NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, command lines, and APIs still refer to 'insights'.  As such, the 'insights-client' command is still the correct one to use.
 
-1. From your showroom environment, click the tab labeled `rhel-${guid}-2.lab terminal`.
+1. From your showroom environment, click the tab labeled `rhel-{guid}-2.lab terminal`.
 
 .rhel-{guid}-2.lab terminal tab
 image::host2-terminal.png[../assets/host2-terminal-tab]

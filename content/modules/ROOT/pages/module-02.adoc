@@ -167,7 +167,8 @@ image::Insights_Export_Botton_and_Bar.png[ExportButton,85%,85%]
 [start=10]
 10. Click the export button which will give you the option to export this list into CSV or JSON formats. +
 
-You should know that the exported data is WYSIWYG (what you see is what you get), so an export on the `Conventional (RPM-DNF)` tab will show you only the RPM/DNF based systems.  If you apply any filters to the view, those filters will affect what is exported.
+You should know that the exported data is WYSIWYG (what you see is what you get). +
+If you apply any filters to the view, those filters will affect what is exported.
 
 In other words, getting a list of systems impacted by a vulnerability takes just seconds - search for the CVE then export the list of impacted systems.
 
@@ -188,8 +189,6 @@ Red Hat Lightspeed can generate playbooks for all CVEs with errata.  Doing this 
 1. Find and locate your system, then click the checkbox to the left of your system's name. +
 
 Reminder: your system name is: `rhel-{guid}-1.lab` +
-
-NOTE: The following steps are for Conventional (RPM-DNF) based systems.  Immutable (OSTree) systems are image based and you update the image vs making system changes.
 
 [start=2]
 2. Once you have hosts selected, click the `Plan remediation` button which will launch a wizard that will create a playbook for you.

@@ -40,6 +40,10 @@ image::lb1187_M1_Labinfra.png[link=self, window=blank, width=100%]
 
 NOTE: For your convenience, the image above and all images in this lab can be expanded by clicking on them.
 
+Here are the tasks we are going to ask you to complete in Infinicorp's testing environment:
+
+```
+
 For directly connected systems: +
 
 * Review the internet connected RHEL 9.7 system to identify if there are any common vulnerabilities and exposures (CVEs) that are critical or important which need to be addressed.
@@ -49,6 +53,11 @@ For Satellite connected systems: +
 
 * Review the Satellite connected 10.1 host to see if there are any recommendations to improve the reliability, performance, or security of the host.
 * Review the Satellite connected 10.1 host to see if there are any common vulnerabilities and exposures (CVEs) that are critical or important which need to be addressed.
+
+```
+
+NOTE: In the test environment there will be other people also testing using the same Hybrid Cloud Console account. +
+Please name items as instructed so that you can easily identify objects that you create. +
 
 Before we set you on these tasks, let’s take a few minutes to review some of the tools that you will be using today.  +
 
@@ -75,7 +84,8 @@ To help draw a distinction between Red Hat Lightspeed managed by Red Hat on the 
 
 With this option enabled, Red Hat Lightspeed has a series of containers that run on the Satellite server to analyze and provide information about your environment. That analysis is done on the Satellite server, in containers, without sending any data to Red Hat.
 
-WARNING: Once Red Hat Lightspeed in Satellite is configured, your Satellite will not be able to send any data to the Hybrid Cloud Console - the local Satellite handles the analysis without sending any data. This means you cannot utilize any of the Hybrid Cloud Console capabilities and you are limited to only what is provided by Red Hat Lightspeed in Satellite. 
+WARNING: Once Red Hat Lightspeed in Satellite is configured, your Satellite will not be able to send any data to the Hybrid Cloud Console - the local Satellite handles the analysis without sending any data. +
+This means hosts connected to the Satellite using Red Hat Lightspeed in Satellite cannot utilize any of the Hybrid Cloud Console capabilities and you are limited to only what is provided by Red Hat Lightspeed in Satellite. 
 
 The Red Hat Lightspeed in Satellite capability includes:
 
