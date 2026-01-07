@@ -56,6 +56,9 @@ For Satellite connected systems: +
 
 ```
 
+NOTE: In the test environment there will be other people also testing using the same Hybrid Cloud Console account. +
+Please name items as instructed so that you can easily identify objects that you create. +
+
 Before we set you on these tasks, let’s take a few minutes to review some of the tools that you will be using today.  +
 
 To help with RHEL management, there are two main products that you will be working with: + 
