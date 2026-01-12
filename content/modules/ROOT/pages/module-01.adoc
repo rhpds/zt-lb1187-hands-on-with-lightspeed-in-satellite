@@ -38,7 +38,7 @@ For testing purposes, in your lab environment we have already provided for you: 
 .Testing Environment
 image::lb1187_M1_Labinfra.png[link=self, window=blank, width=100%]
 
-NOTE: For your convenience, the image above and all images in this lab can be expanded by clicking on them.
+NOTE: To see an image full screen, right-click on the image and select "Open image in new Tab" or the equivalent option for your browser.
 
 Here are the tasks we are going to ask you to complete in Infinicorp's testing environment:
 
