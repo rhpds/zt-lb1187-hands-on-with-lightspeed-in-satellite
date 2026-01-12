@@ -3,7 +3,7 @@
 = Welcome to Infinicorp - we have tasks for you!
 
 .Infinicorp Logo
-image::lb1187_M1_Infinicorp_Logo.png[link=self, window=blank, width=100%]
+image::lb1187_M1_Infinicorp_Logo.png[link=self, window=blank, width=100%^]
 
 We need your help to update Infinicorp’s management of their Red Hat Enterprise Linux environments.
 
@@ -42,7 +42,7 @@ NOTE: For your convenience, the image above and all images in this lab can be ex
 
 Here are the tasks we are going to ask you to complete in Infinicorp's testing environment:
 
-```
+'''
 
 For directly connected systems: +
 
@@ -54,7 +54,7 @@ For Satellite connected systems: +
 * Review the Satellite connected 10.1 host to see if there are any recommendations to improve the reliability, performance, or security of the host.
 * Review the Satellite connected 10.1 host to see if there are any common vulnerabilities and exposures (CVEs) that are critical or important which need to be addressed.
 
-```
+'''
 
 NOTE: In the test environment there will be other people also testing using the same Hybrid Cloud Console account. +
 Please name items as instructed so that you can easily identify objects that you create. +

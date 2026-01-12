@@ -88,7 +88,7 @@ NOTE: Please replace the default policy name with  the policy name as shown abov
 *Set the compliance threshold to `97`*
 11. Click Next.
 12. Locate and select your RHEL 9.7 host.  It may help to use the search filter. +
-Reminder: your system name is: `rhel-{guid}-1.lab` +
+Reminder: your system name is: `rhel-{guid}-1` +
 
 NOTE: Please only add your host to this policy.
 
@@ -139,9 +139,9 @@ Red Hat Lightspeed uses an insights-client command on the host to perform the ev
 
 NOTE: Though the name of Insights changed to Red Hat Lightspeed, packages, command lines, and APIs still refer to 'insights'.  As such, the 'insights-client' command is still the correct one to use.
 
-1. From your showroom environment, click the tab labeled `rhel-{guid}-1.lab terminal`.
+1. From your showroom environment, click the tab labeled `rhel-{guid}-1 terminal`.
 
-.rhel-{guid}-1.lab terminal tab
+.rhel-{guid}-1 terminal tab
 image::lb1187_M3_terminaltab.png[link=self, window=blank, width=100%]
 
 [start=2]
@@ -270,7 +270,7 @@ This will open the `Remediate with Ansible` wizard.
 9. Name your playbook: *{guid} compliance fix*
 10. Click Next.
 11. Your system will be selected. +
-Reminder: your system name is: `rhel-{guid}-1.lab` +
+Reminder: your system name is: `rhel-{guid}-1` +
 Click Next.
 12. The `Remediation review` tab will list the fixes for the issues you selected and let you know if a reboot is required.  +
 Review the information and click Submit.

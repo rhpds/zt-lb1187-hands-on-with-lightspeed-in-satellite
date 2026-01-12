@@ -17,8 +17,10 @@ Please complete each section in order.
 ====
 
 
-Please use a web browser to navigate to the https://console.redhat.com[Hybrid Cloud Console^] <-- Click to open in new tab. +
+Please use a web browser to navigate to the https://console.redhat.com[Hybrid Cloud Console^] <-- Click to open in a new tab. +
 Log into the Hybrid Cloud Console with the following credentials: +
+
+NOTE: If you are a regular user of the Hybrid Cloud Console it is recommended to use an incognito or private browser instance to prevent overlap with cookies.  
 
 User:
 [source,sh,role=execute]
@@ -120,7 +122,7 @@ In the upper right of the page you will see a `Business risk` and a `Status`.  I
 
 NOTE: You may see a different Business risk or Status than `Not defined` or `Not reviewed`.  That is ok.
 
-`Business risk` is intended for you to be able to define a risk that is specific to your business - this CVE is tagged with a severity of moderate, but if you have a workload that is deeply affected by this vulnerability, then this may be a more critical issue for you.   +
+`Business risk` is intended for you to be able to define a risk that is specific to your business - this CVE is tagged with a severity of important, but if you have a workload that is deeply affected by this vulnerability, then this may be a more critical issue for you.   +
 
 [start=5]
 5. Click `Actions` in the upper right. You will have the option to `Edit business risk`.  Click this option. +
@@ -185,10 +187,13 @@ You now have the info that SecOps has requested, but you know that Infinicorp Se
 ====
 
 Red Hat Lightspeed can generate playbooks for all CVEs with errata.  Doing this is very simple. +
+Make sure you are looking at https://console.redhat.com/insights/vulnerability/cves/CVE-2025-43458[CVE-2025-43458^]. +
+If you are following along in the guide you should already be in the right place. +
+This view will list all of the systems that are affected by https://console.redhat.com/insights/vulnerability/cves/CVE-2025-43458[CVE-2025-43458^].
 
 1. Find and locate your system, then click the checkbox to the left of your system's name. +
 
-Reminder: your system name is: `rhel-{guid}-1.lab` +
+Reminder: your system name is: `rhel-{guid}-1` +
 
 [start=2]
 2. Once you have hosts selected, click the `Plan remediation` button which will launch a wizard that will create a playbook for you.
@@ -198,7 +203,7 @@ You can add this fix to an existing playbook or you can create a new playbook.  
 [start=3]
 3. Name your playbook: *43458 fix {guid}*
 
-Reminder: your system name is: `rhel-{guid}-1.lab`
+Reminder: your system name is: `rhel-{guid}-1`
 
 NOTE: Please name the playbook as shown above. This will help with automated cleanup tasks.  
 
@@ -251,7 +256,7 @@ Let’s return to the vulnerability page and look at your specific host with the
 
 2. Locate your host and click on the hostname. +
 
-Reminder: your system name is: `rhel-{guid}-1.lab`
+Reminder: your system name is: `rhel-{guid}-1`
 
 This view will show you all of the vulnerabilities present on this specific host. +
 
@@ -386,6 +391,9 @@ NOTE: It may take a moment for the report to be generated. The report is downloa
 [%collapsible]
 ====
 
+Infinicorp wants to know the benefits of moving older versions of RHEL to newer versions in terms of the number of Vulnerabilities known for the minor release.  
+Their current RHEL 9 deployments tend to be on the latest version or on one of the Extended Update Support (EUS) versions of RHEL - typically 9.2 or 9.4. 
+
 This report will provide you a breakdown of vulnerabilities affecting the minor operating system versions of your RHEL systems.  
 
 1. Under `Report by operating system versions` click `Create report`. +
@@ -394,7 +402,10 @@ This opens a window where you can identify what you want the report to contain. 
 [start=2]
 2. Complete the report wizard +
 * If desired you can change the `Report title`.
-* Select `RHEL 10.1`(Your RHEL node connected to Satellite is using this version, `RHEL 9.7`(Your directly connected RHEL node and your Satellite server are running this version, and `RHEL 8.10` (you don’t have any systems running this version of RHEL). 
+* Select `RHEL 9.7`, `RHEL 9.4` and `RHEL 9.2` 
++
+NOTE: You can only compare within the same major version of RHEL.  With RHEL 9.x selected you cannot select another major version of RHEL to compare.
++
 * Notice that you can filter the CVE severity - Critical, Important, Moderate, and/or Low.  Leave this as the default of All.
 * Notice that you can filter the `Advisory:Available` option to `Not Available` or All (Select both options).  This would allow you to report on CVEs without errata.  Leave this as the default of All. 
 * If desired, add user notes about the report. 
